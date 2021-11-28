@@ -1,4 +1,4 @@
-// Echo reply
+// Reply with two static messages
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -9,12 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.post('/webhook', (req, res) => {
     let reply_token = req.body.events[0].replyToken
-    let msg = req.body.events[0].message.text
-    reply(reply_token, msg)
+    reply(reply_token)
     res.sendStatus(200)
 })
 app.listen(port)
-function reply(reply_token, msg) {
+function reply(reply_token) {
     let headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer {YaeQhCzNLf9UjpO4UiiX3HRlZ8iixRqaumnJataQALX/bjQY3Lvz/yrY6Ce/1NTZGjP9+CDb3TLWrYjj2CaPirkVQwjJCs4oZbtOJrqKjPlSG1xuK4TixwaL0zXRsqtfm+YFGm8A/RmKK7dASoJ11gdB04t89/1O/w1cDnyilFU=}'
@@ -23,7 +22,11 @@ function reply(reply_token, msg) {
         replyToken: reply_token,
         messages: [{
             type: 'text',
-            text: msg
+            text: 'Hello'
+        },
+        {
+            type: 'text',
+            text: 'How are you?'
         }]
     })
     request.post({
