@@ -37,7 +37,7 @@ function handleMessageEvent(event) {
     return client.replyMessage(event.replyToken, msg);
 }
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function () {
     console.log('run at port', app.get('port'));
