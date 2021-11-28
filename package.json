@@ -4,6 +4,7 @@
   "description": "",
   "main": "linebot.js",
   "scripts": {
+    "start": "node linebot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
