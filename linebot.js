@@ -53,9 +53,9 @@ function handleMessageText(event) {
                 "type": "bubble",
                 "hero": {
                   "type": "image",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png",
-                  "size": "full",
-                  "aspectRatio": "20:13",
+                  "url": "https://media.discordapp.net/attachments/914926459368390746/914930958883508274/se_white.png?width=856&height=1013",
+                  "size": "xxl",
+                  "aspectRatio": "10:19",
                   "aspectMode": "cover"
                 },
                 "body": {
@@ -65,11 +65,16 @@ function handleMessageText(event) {
                   "contents": [
                     {
                       "type": "text",
-                      "text": "Arm Chair, White",
+                      "text": "Iphone SE",
                       "weight": "bold",
                       "size": "xl",
+                      "align": "start",
                       "wrap": true,
-                      "contents": []
+                    },
+                    {
+                      "type": "text",
+                      "text": "white",
+                      "align": "start",
                     },
                     {
                       "type": "box",
@@ -77,21 +82,41 @@ function handleMessageText(event) {
                       "contents": [
                         {
                           "type": "text",
-                          "text": "$49",
-                          "weight": "bold",
-                          "size": "xl",
+                          "text": "64",
+                          "weight": "regular",
                           "flex": 0,
+                          "align": "end",
                           "wrap": true,
-                          "contents": []
                         },
                         {
                           "type": "text",
-                          "text": ".99",
+                          "text": "GB",
+                          "size": "sm",
+                          "margin": "sm",
+                          "wrap": true,
+                        }
+                      ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "14,900",
+                          "weight": "bold",
+                          "size": "xl",
+                          "flex": 0,
+                          "align": "end",
+                          "wrap": true,
+                        },
+                        {
+                          "type": "text",
+                          "text": "บาท",
                           "weight": "bold",
                           "size": "sm",
-                          "flex": 0,
+                          "margin": "sm",
                           "wrap": true,
-                          "contents": []
                         }
                       ]
                     }
@@ -110,14 +135,6 @@ function handleMessageText(event) {
                         "uri": "https://linecorp.com"
                       },
                       "style": "primary"
-                    },
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "uri",
-                        "label": "Add to wishlist",
-                        "uri": "https://linecorp.com"
-                      }
                     }
                   ]
                 }
@@ -126,9 +143,9 @@ function handleMessageText(event) {
                 "type": "bubble",
                 "hero": {
                   "type": "image",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png",
-                  "size": "full",
-                  "aspectRatio": "20:13",
+                  "url": "https://media.discordapp.net/attachments/914926041657671721/914926459192217662/se_black.png?width=856&height=1013",
+                  "size": "xxl",
+                  "aspectRatio": "10:19",
                   "aspectMode": "cover"
                 },
                 "body": {
@@ -138,46 +155,60 @@ function handleMessageText(event) {
                   "contents": [
                     {
                       "type": "text",
-                      "text": "Metal Desk Lamp",
+                      "text": "Iphone SE",
                       "weight": "bold",
                       "size": "xl",
+                      "align": "start",
                       "wrap": true,
-                      "contents": []
+                    },
+                    {
+                      "type": "text",
+                      "text": "black",
+                      "align": "start",
                     },
                     {
                       "type": "box",
                       "layout": "baseline",
-                      "flex": 1,
                       "contents": [
                         {
                           "type": "text",
-                          "text": "$11",
-                          "weight": "bold",
-                          "size": "xl",
+                          "text": "64",
+                          "weight": "regular",
                           "flex": 0,
+                          "align": "end",
                           "wrap": true,
-                          "contents": []
                         },
                         {
                           "type": "text",
-                          "text": ".99",
-                          "weight": "bold",
+                          "text": "GB",
                           "size": "sm",
-                          "flex": 0,
+                          "margin": "sm",
                           "wrap": true,
-                          "contents": []
                         }
                       ]
                     },
                     {
-                      "type": "text",
-                      "text": "Temporarily out of stock",
-                      "size": "xxs",
-                      "color": "#FF5551",
-                      "flex": 0,
-                      "margin": "md",
-                      "wrap": true,
-                      "contents": []
+                      "type": "box",
+                      "layout": "baseline",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "14,900",
+                          "weight": "bold",
+                          "size": "xl",
+                          "flex": 0,
+                          "align": "end",
+                          "wrap": true,
+                        },
+                        {
+                          "type": "text",
+                          "text": "บาท",
+                          "weight": "bold",
+                          "size": "sm",
+                          "margin": "sm",
+                          "wrap": true,
+                        }
+                      ]
                     }
                   ]
                 },
@@ -193,24 +224,85 @@ function handleMessageText(event) {
                         "label": "Add to Cart",
                         "uri": "https://linecorp.com"
                       },
-                      "flex": 2,
-                      "color": "#AAAAAA",
                       "style": "primary"
-                    },
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "uri",
-                        "label": "Add to wish list",
-                        "uri": "https://linecorp.com"
-                      }
                     }
                   ]
                 }
               },
               {
                 "type": "bubble",
+                "hero": {
+                  "type": "image",
+                  "url": "https://media.discordapp.net/attachments/914926459368390746/914930958577336320/se_red.png?width=856&height=1013",
+                  "size": "xxl",
+                  "aspectRatio": "10:19",
+                  "aspectMode": "cover"
+                },
                 "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Iphone SE",
+                      "weight": "bold",
+                      "size": "xl",
+                      "align": "start",
+                      "wrap": true,
+                    },
+                    {
+                      "type": "text",
+                      "text": "red",
+                      "align": "start",
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "64",
+                          "weight": "regular",
+                          "flex": 0,
+                          "align": "end",
+                          "wrap": true,
+                        },
+                        {
+                          "type": "text",
+                          "text": "GB",
+                          "size": "sm",
+                          "margin": "sm",
+                          "wrap": true,
+                        }
+                      ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "14,900",
+                          "weight": "bold",
+                          "size": "xl",
+                          "flex": 0,
+                          "align": "end",
+                          "wrap": true,
+                        },
+                        {
+                          "type": "text",
+                          "text": "บาท",
+                          "weight": "bold",
+                          "size": "sm",
+                          "margin": "sm",
+                          "wrap": true,
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "footer": {
                   "type": "box",
                   "layout": "vertical",
                   "spacing": "sm",
@@ -219,18 +311,18 @@ function handleMessageText(event) {
                       "type": "button",
                       "action": {
                         "type": "uri",
-                        "label": "See more",
+                        "label": "Add to Cart",
                         "uri": "https://linecorp.com"
                       },
-                      "flex": 1,
-                      "gravity": "center"
+                      "style": "primary"
                     }
                   ]
                 }
               }
             ]
           }
-        
+
+
     }
     return client.replyMessage(event.replyToken, msg);
 
