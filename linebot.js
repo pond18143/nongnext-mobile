@@ -47,106 +47,187 @@ function handleMessageText(event) {
 
     if (eventText === 'iphonese') {
         msg = {
-            "type": "carousel",
-            "contents": [
-              {
-                "type": "bubble",
-                "hero": {
-                  "type": "image",
-                  "url": "https://media.discordapp.net/attachments/914926459368390746/914930958883508274/se_white.png?width=856&height=1013",
-                  "size": "xxl",
-                  "aspectRatio": "10:19",
-                  "aspectMode": "cover"
-                },
-                "body": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "Iphone SE",
-                      "weight": "bold",
-                      "size": "xl",
-                      "align": "start",
-                      "wrap": true,
-                      "contents": []
-                    },
-                    {
-                      "type": "text",
-                      "text": "white",
-                      "align": "start",
-                      "contents": []
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "64",
-                          "weight": "regular",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                          "contents": []
-                        },
-                        {
-                          "type": "text",
-                          "text": "GB",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                          "contents": []
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "14,900",
-                          "weight": "bold",
-                          "size": "xl",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                          "contents": []
-                        },
-                        {
-                          "type": "text",
-                          "text": "บาท",
-                          "weight": "bold",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                          "contents": []
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "footer": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "uri",
-                        "label": "Add to Cart",
-                        "uri": "https://linecorp.com"
+            "type": "flex",
+            "altText": "Flex Message",
+            "contents": {
+              "type": "carousel",
+              "contents": [
+                {
+                  "type": "bubble",
+                  "hero": {
+                    "type": "image",
+                    "url": "https://admin-api.thaiorganicplatform.com/public/upload/product/product-5dc05fdfebcbf3.64054314.png",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover"
+                  },
+                  "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Avocado",
+                        "size": "xl",
+                        "weight": "bold",
+                        "wrap": true
                       },
-                      "style": "primary"
-                    }
-                  ]
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "$9",
+                            "flex": 0,
+                            "size": "xl",
+                            "weight": "bold",
+                            "wrap": true
+                          },
+                          {
+                            "type": "text",
+                            "text": ".99",
+                            "flex": 0,
+                            "size": "sm",
+                            "weight": "bold",
+                            "wrap": true
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "button",
+                        "action": {
+                          "type": "uri",
+                          "label": "Add to Cart",
+                          "uri": "https://linecorp.com"
+                        },
+                        "style": "primary"
+                      },
+                      {
+                        "type": "button",
+                        "action": {
+                          "type": "uri",
+                          "label": "Add to whishlist",
+                          "uri": "https://linecorp.com"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "bubble",
+                  "hero": {
+                    "type": "image",
+                    "url": "https://admin-api.thaiorganicplatform.com/public/upload/product/product-5dc05fdff0f093.27849305.png",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover"
+                  },
+                  "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Bad avocado",
+                        "size": "xl",
+                        "weight": "bold",
+                        "wrap": true
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "flex": 1,
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "$5",
+                            "flex": 0,
+                            "size": "xl",
+                            "weight": "bold",
+                            "wrap": true
+                          },
+                          {
+                            "type": "text",
+                            "text": ".99",
+                            "flex": 0,
+                            "size": "sm",
+                            "weight": "bold",
+                            "wrap": true
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "Temporarily out of stock",
+                        "flex": 0,
+                        "margin": "md",
+                        "size": "xxs",
+                        "color": "#FF5551",
+                        "wrap": true
+                      }
+                    ]
+                  },
+                  "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "button",
+                        "action": {
+                          "type": "uri",
+                          "label": "Add to Cart",
+                          "uri": "https://linecorp.com"
+                        },
+                        "flex": 2,
+                        "color": "#AAAAAA",
+                        "style": "primary"
+                      },
+                      {
+                        "type": "button",
+                        "action": {
+                          "type": "uri",
+                          "label": "Add to wish list",
+                          "uri": "https://linecorp.com"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "bubble",
+                  "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "button",
+                        "action": {
+                          "type": "uri",
+                          "label": "See more",
+                          "uri": "https://linecorp.com"
+                        },
+                        "flex": 1,
+                        "gravity": "center"
+                      }
+                    ]
+                  }
                 }
-              }
-            ]
+              ]
+            }
           }
+        
     }
     return client.replyMessage(event.replyToken, msg);
 
