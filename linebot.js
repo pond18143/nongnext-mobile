@@ -47,185 +47,188 @@ function handleMessageText(event) {
 
     if (eventText === 'iphonese') {
         msg = {
-            "type": "flex",
-            "altText": "Flex Message",
-            "contents": {
-              "type": "carousel",
-              "contents": [
-                {
-                  "type": "bubble",
-                  "hero": {
-                    "type": "image",
-                    "url": "https://admin-api.thaiorganicplatform.com/public/upload/product/product-5dc05fdfebcbf3.64054314.png",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover"
-                  },
-                  "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "Avocado",
-                        "size": "xl",
-                        "weight": "bold",
-                        "wrap": true
-                      },
-                      {
-                        "type": "box",
-                        "layout": "baseline",
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": "$9",
-                            "flex": 0,
-                            "size": "xl",
-                            "weight": "bold",
-                            "wrap": true
-                          },
-                          {
-                            "type": "text",
-                            "text": ".99",
-                            "flex": 0,
-                            "size": "sm",
-                            "weight": "bold",
-                            "wrap": true
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "button",
-                        "action": {
-                          "type": "uri",
-                          "label": "Add to Cart",
-                          "uri": "https://linecorp.com"
-                        },
-                        "style": "primary"
-                      },
-                      {
-                        "type": "button",
-                        "action": {
-                          "type": "uri",
-                          "label": "Add to whishlist",
-                          "uri": "https://linecorp.com"
-                        }
-                      }
-                    ]
-                  }
+            "type": "carousel",
+            "contents": [
+              {
+                "type": "bubble",
+                "hero": {
+                  "type": "image",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png",
+                  "size": "full",
+                  "aspectRatio": "20:13",
+                  "aspectMode": "cover"
                 },
-                {
-                  "type": "bubble",
-                  "hero": {
-                    "type": "image",
-                    "url": "https://admin-api.thaiorganicplatform.com/public/upload/product/product-5dc05fdff0f093.27849305.png",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover"
-                  },
-                  "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "Bad avocado",
-                        "size": "xl",
-                        "weight": "bold",
-                        "wrap": true
-                      },
-                      {
-                        "type": "box",
-                        "layout": "baseline",
-                        "flex": 1,
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": "$5",
-                            "flex": 0,
-                            "size": "xl",
-                            "weight": "bold",
-                            "wrap": true
-                          },
-                          {
-                            "type": "text",
-                            "text": ".99",
-                            "flex": 0,
-                            "size": "sm",
-                            "weight": "bold",
-                            "wrap": true
-                          }
-                        ]
-                      },
-                      {
-                        "type": "text",
-                        "text": "Temporarily out of stock",
-                        "flex": 0,
-                        "margin": "md",
-                        "size": "xxs",
-                        "color": "#FF5551",
-                        "wrap": true
-                      }
-                    ]
-                  },
-                  "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "button",
-                        "action": {
-                          "type": "uri",
-                          "label": "Add to Cart",
-                          "uri": "https://linecorp.com"
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Arm Chair, White",
+                      "weight": "bold",
+                      "size": "xl",
+                      "wrap": true,
+                      "contents": []
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "$49",
+                          "weight": "bold",
+                          "size": "xl",
+                          "flex": 0,
+                          "wrap": true,
+                          "contents": []
                         },
-                        "flex": 2,
-                        "color": "#AAAAAA",
-                        "style": "primary"
-                      },
-                      {
-                        "type": "button",
-                        "action": {
-                          "type": "uri",
-                          "label": "Add to wish list",
-                          "uri": "https://linecorp.com"
+                        {
+                          "type": "text",
+                          "text": ".99",
+                          "weight": "bold",
+                          "size": "sm",
+                          "flex": 0,
+                          "wrap": true,
+                          "contents": []
                         }
-                      }
-                    ]
-                  }
+                      ]
+                    }
+                  ]
                 },
-                {
-                  "type": "bubble",
-                  "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "button",
-                        "action": {
-                          "type": "uri",
-                          "label": "See more",
-                          "uri": "https://linecorp.com"
-                        },
-                        "flex": 1,
-                        "gravity": "center"
+                "footer": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "uri",
+                        "label": "Add to Cart",
+                        "uri": "https://linecorp.com"
+                      },
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "uri",
+                        "label": "Add to wishlist",
+                        "uri": "https://linecorp.com"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 }
-              ]
-            }
+              },
+              {
+                "type": "bubble",
+                "hero": {
+                  "type": "image",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png",
+                  "size": "full",
+                  "aspectRatio": "20:13",
+                  "aspectMode": "cover"
+                },
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Metal Desk Lamp",
+                      "weight": "bold",
+                      "size": "xl",
+                      "wrap": true,
+                      "contents": []
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "flex": 1,
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "$11",
+                          "weight": "bold",
+                          "size": "xl",
+                          "flex": 0,
+                          "wrap": true,
+                          "contents": []
+                        },
+                        {
+                          "type": "text",
+                          "text": ".99",
+                          "weight": "bold",
+                          "size": "sm",
+                          "flex": 0,
+                          "wrap": true,
+                          "contents": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": "Temporarily out of stock",
+                      "size": "xxs",
+                      "color": "#FF5551",
+                      "flex": 0,
+                      "margin": "md",
+                      "wrap": true,
+                      "contents": []
+                    }
+                  ]
+                },
+                "footer": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "uri",
+                        "label": "Add to Cart",
+                        "uri": "https://linecorp.com"
+                      },
+                      "flex": 2,
+                      "color": "#AAAAAA",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "uri",
+                        "label": "Add to wish list",
+                        "uri": "https://linecorp.com"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "uri",
+                        "label": "See more",
+                        "uri": "https://linecorp.com"
+                      },
+                      "flex": 1,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         
     }
