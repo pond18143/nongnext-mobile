@@ -45,7 +45,7 @@ function handleMessageText(event) {
 
     var eventText = event.message.text.toLowerCase();
 
-    if (eventText === 'iphoneSE') {
+    if (eventText === 'iphonese') {
         msg = {
             "type": "carousel",
             "contents": [
