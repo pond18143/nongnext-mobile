@@ -47,281 +47,302 @@ function handleMessageText(event) {
 
     if (eventText === 'iphonese') {
         msg = {
-            "type": "carousel",
-            "contents": [
-              {
-                "type": "bubble",
-                "hero": {
-                  "type": "image",
-                  "url": "https://media.discordapp.net/attachments/914926459368390746/914930958883508274/se_white.png?width=856&height=1013",
-                  "size": "xxl",
-                  "aspectRatio": "10:19",
-                  "aspectMode": "cover"
-                },
-                "body": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "Iphone SE",
-                      "weight": "bold",
-                      "size": "xl",
-                      "align": "start",
-                      "wrap": true,
-                    },
-                    {
-                      "type": "text",
-                      "text": "white",
-                      "align": "start",
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "64",
-                          "weight": "regular",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                        },
-                        {
-                          "type": "text",
-                          "text": "GB",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "14,900",
-                          "weight": "bold",
-                          "size": "xl",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                        },
-                        {
-                          "type": "text",
-                          "text": "บาท",
-                          "weight": "bold",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "footer": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "uri",
-                        "label": "Add to Cart",
-                        "uri": "https://linecorp.com"
-                      },
-                      "style": "primary"
-                    }
-                  ]
-                }
+          "type": "flex",
+          "altText": "Flex Message",
+          "contents": {
+          "type": "carousel",
+          "contents": [
+            {
+              "type": "bubble",
+              "hero": {
+                "type": "image",
+                "url": "https://media.discordapp.net/attachments/914926459368390746/914930958883508274/se_white.png?width=856&height=1013",
+                "size": "xxl",
+                "aspectRatio": "10:19",
+                "aspectMode": "cover"
               },
-              {
-                "type": "bubble",
-                "hero": {
-                  "type": "image",
-                  "url": "https://media.discordapp.net/attachments/914926041657671721/914926459192217662/se_black.png?width=856&height=1013",
-                  "size": "xxl",
-                  "aspectRatio": "10:19",
-                  "aspectMode": "cover"
-                },
-                "body": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "Iphone SE",
-                      "weight": "bold",
-                      "size": "xl",
-                      "align": "start",
-                      "wrap": true,
-                    },
-                    {
-                      "type": "text",
-                      "text": "black",
-                      "align": "start",
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "64",
-                          "weight": "regular",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                        },
-                        {
-                          "type": "text",
-                          "text": "GB",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "14,900",
-                          "weight": "bold",
-                          "size": "xl",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                        },
-                        {
-                          "type": "text",
-                          "text": "บาท",
-                          "weight": "bold",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "footer": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "uri",
-                        "label": "Add to Cart",
-                        "uri": "https://linecorp.com"
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Iphone SE",
+                    "weight": "bold",
+                    "size": "xl",
+                    "align": "start",
+                    "wrap": true,
+                    "contents": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "white",
+                    "align": "start",
+                    "contents": []
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "64",
+                        "weight": "regular",
+                        "flex": 0,
+                        "align": "end",
+                        "wrap": true,
+                        "contents": []
                       },
-                      "style": "primary"
-                    }
-                  ]
-                }
+                      {
+                        "type": "text",
+                        "text": "GB",
+                        "size": "sm",
+                        "margin": "sm",
+                        "wrap": true,
+                        "contents": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "14,900",
+                        "weight": "bold",
+                        "size": "xl",
+                        "flex": 0,
+                        "align": "end",
+                        "wrap": true,
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "บาท",
+                        "weight": "bold",
+                        "size": "sm",
+                        "margin": "sm",
+                        "wrap": true,
+                        "contents": []
+                      }
+                    ]
+                  }
+                ]
               },
-              {
-                "type": "bubble",
-                "hero": {
-                  "type": "image",
-                  "url": "https://media.discordapp.net/attachments/914926459368390746/914930958577336320/se_red.png?width=856&height=1013",
-                  "size": "xxl",
-                  "aspectRatio": "10:19",
-                  "aspectMode": "cover"
-                },
-                "body": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "Iphone SE",
-                      "weight": "bold",
-                      "size": "xl",
-                      "align": "start",
-                      "wrap": true,
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "uri",
+                      "label": "Add to Cart",
+                      "uri": "https://linecorp.com"
                     },
-                    {
-                      "type": "text",
-                      "text": "red",
-                      "align": "start",
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "64",
-                          "weight": "regular",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                        },
-                        {
-                          "type": "text",
-                          "text": "GB",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "14,900",
-                          "weight": "bold",
-                          "size": "xl",
-                          "flex": 0,
-                          "align": "end",
-                          "wrap": true,
-                        },
-                        {
-                          "type": "text",
-                          "text": "บาท",
-                          "weight": "bold",
-                          "size": "sm",
-                          "margin": "sm",
-                          "wrap": true,
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "footer": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "button",
-                      "action": {
-                        "type": "uri",
-                        "label": "Add to Cart",
-                        "uri": "https://linecorp.com"
-                      },
-                      "style": "primary"
-                    }
-                  ]
-                }
+                    "style": "primary"
+                  }
+                ]
               }
-            ]
-          }
-
+            },
+            {
+              "type": "bubble",
+              "hero": {
+                "type": "image",
+                "url": "https://media.discordapp.net/attachments/914926041657671721/914926459192217662/se_black.png?width=856&height=1013",
+                "size": "xxl",
+                "aspectRatio": "10:19",
+                "aspectMode": "cover"
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Iphone SE",
+                    "weight": "bold",
+                    "size": "xl",
+                    "align": "start",
+                    "wrap": true,
+                    "contents": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "black",
+                    "align": "start",
+                    "contents": []
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "64",
+                        "weight": "regular",
+                        "flex": 0,
+                        "align": "end",
+                        "wrap": true,
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "GB",
+                        "size": "sm",
+                        "margin": "sm",
+                        "wrap": true,
+                        "contents": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "14,900",
+                        "weight": "bold",
+                        "size": "xl",
+                        "flex": 0,
+                        "align": "end",
+                        "wrap": true,
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "บาท",
+                        "weight": "bold",
+                        "size": "sm",
+                        "margin": "sm",
+                        "wrap": true,
+                        "contents": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "uri",
+                      "label": "Add to Cart",
+                      "uri": "https://linecorp.com"
+                    },
+                    "style": "primary"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bubble",
+              "hero": {
+                "type": "image",
+                "url": "https://media.discordapp.net/attachments/914926459368390746/914930958577336320/se_red.png?width=856&height=1013",
+                "size": "xxl",
+                "aspectRatio": "10:19",
+                "aspectMode": "cover"
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Iphone SE",
+                    "weight": "bold",
+                    "size": "xl",
+                    "align": "start",
+                    "wrap": true,
+                    "contents": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "red",
+                    "align": "start",
+                    "contents": []
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "64",
+                        "weight": "regular",
+                        "flex": 0,
+                        "align": "end",
+                        "wrap": true,
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "GB",
+                        "size": "sm",
+                        "margin": "sm",
+                        "wrap": true,
+                        "contents": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "14,900",
+                        "weight": "bold",
+                        "size": "xl",
+                        "flex": 0,
+                        "align": "end",
+                        "wrap": true,
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "บาท",
+                        "weight": "bold",
+                        "size": "sm",
+                        "margin": "sm",
+                        "wrap": true,
+                        "contents": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "uri",
+                      "label": "Add to Cart",
+                      "uri": "https://linecorp.com"
+                    },
+                    "style": "primary"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
 
     }
     return client.replyMessage(event.replyToken, msg);
