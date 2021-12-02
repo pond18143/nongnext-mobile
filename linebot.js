@@ -439,8 +439,7 @@ function handleMessageText(event) {
             "style": "primary"
           }
         ]
-      }, "type": "flex",
-      "altText": "Flex Message"
+      }
     }
   }
 
