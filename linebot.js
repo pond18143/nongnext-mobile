@@ -344,107 +344,109 @@ function handleMessageText(event) {
       }
     }
   }
-  if (eventText === 'se') {
-    msg = {
-      "type": "flex",
-      "altText": "Flex Message",
-      "contents": {
-      "type": "bubble",
-      "hero": {
-        "type": "image",
-        "url": "https://media.discordapp.net/attachments/914926459368390746/914930958883508274/se_white.png?width=856&height=1013",
-        "size": "xxl",
-        "aspectRatio": "10:19",
-        "aspectMode": "cover"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "text",
-            "text": "Iphone SE",
-            "weight": "bold",
-            "size": "xl",
-            "align": "start",
-            "wrap": true,
-            "contents": []
-          },
-          {
-            "type": "text",
-            "text": "white",
-            "align": "start",
-            "contents": []
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-              {
-                "type": "text",
-                "text": "64",
-                "weight": "regular",
-                "flex": 0,
-                "align": "end",
-                "wrap": true,
-                "contents": []
-              },
-              {
-                "type": "text",
-                "text": "GB",
-                "size": "sm",
-                "margin": "sm",
-                "wrap": true,
-                "contents": []
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-              {
-                "type": "text",
-                "text": "14,900",
-                "weight": "bold",
-                "size": "xl",
-                "flex": 0,
-                "align": "end",
-                "wrap": true,
-                "contents": []
-              },
-              {
-                "type": "text",
-                "text": "บาท",
-                "weight": "bold",
-                "size": "sm",
-                "margin": "sm",
-                "wrap": true,
-                "contents": []
-              }
-            ]
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Add to Cart",
-              "text": "Iphone SE white 64 GB Add to Cart"
-            },
-            "style": "primary"
-          }
-        ]
-      }
-    }
-  }
+
+  // if (eventText === 'se') {
+  //   msg = {
+  //     "type": "flex",
+  //     "altText": "Flex Message",
+  //     "contents": {
+  //       "type": "bubble",
+  //       "hero": {
+  //         "type": "image",
+  //         "url": "https://media.discordapp.net/attachments/914926459368390746/914930958883508274/se_white.png?width=856&height=1013",
+  //         "size": "xxl",
+  //         "aspectRatio": "10:19",
+  //         "aspectMode": "cover"
+  //       },
+  //       "body": {
+  //         "type": "box",
+  //         "layout": "vertical",
+  //         "spacing": "sm",
+  //         "contents": [
+  //           {
+  //             "type": "text",
+  //             "text": "Iphone SE",
+  //             "weight": "bold",
+  //             "size": "xl",
+  //             "align": "start",
+  //             "wrap": true,
+  //             "contents": []
+  //           },
+  //           {
+  //             "type": "text",
+  //             "text": "white",
+  //             "align": "start",
+  //             "contents": []
+  //           },
+  //           {
+  //             "type": "box",
+  //             "layout": "baseline",
+  //             "contents": [
+  //               {
+  //                 "type": "text",
+  //                 "text": "64",
+  //                 "weight": "regular",
+  //                 "flex": 0,
+  //                 "align": "end",
+  //                 "wrap": true,
+  //                 "contents": []
+  //               },
+  //               {
+  //                 "type": "text",
+  //                 "text": "GB",
+  //                 "size": "sm",
+  //                 "margin": "sm",
+  //                 "wrap": true,
+  //                 "contents": []
+  //               }
+  //             ]
+  //           },
+  //           {
+  //             "type": "box",
+  //             "layout": "baseline",
+  //             "contents": [
+  //               {
+  //                 "type": "text",
+  //                 "text": "14,900",
+  //                 "weight": "bold",
+  //                 "size": "xl",
+  //                 "flex": 0,
+  //                 "align": "end",
+  //                 "wrap": true,
+  //                 "contents": []
+  //               },
+  //               {
+  //                 "type": "text",
+  //                 "text": "บาท",
+  //                 "weight": "bold",
+  //                 "size": "sm",
+  //                 "margin": "sm",
+  //                 "wrap": true,
+  //                 "contents": []
+  //               }
+  //             ]
+  //           }
+  //         ]
+  //       },
+  //       "footer": {
+  //         "type": "box",
+  //         "layout": "vertical",
+  //         "spacing": "sm",
+  //         "contents": [
+  //           {
+  //             "type": "button",
+  //             "action": {
+  //               "type": "message",
+  //               "label": "Add to Cart",
+  //               "text": "Iphone SE white 64 GB Add to Cart"
+  //             },
+  //             "style": "primary"
+  //           }
+  //         ]
+  //       }
+  //     }
+  //   }
+  // }
 
   return client.replyMessage(event.replyToken, msg);
 
