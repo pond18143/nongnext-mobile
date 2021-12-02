@@ -346,7 +346,9 @@ function handleMessageText(event) {
   }
   if (eventText === 'se') {
     msg = {
+      "type": "flex",
       "altText": "Flex Message",
+      "contents": {
       "type": "bubble",
       "hero": {
         "type": "image",
