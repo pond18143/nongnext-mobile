@@ -47,7 +47,8 @@ function handleMessageText(event) {
   var eventText = event.message.text.toLowerCase();
 
   if (eventText === 'iphonese') {
-    jsonModel.jMessage3
+    var msg = jsonModel.jMessage3
+    
 
   
   // else if (eventText === 'se') {
