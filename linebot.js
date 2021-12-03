@@ -49,7 +49,7 @@ function handleMessageText(event) {
   if (eventText === 'iphonese') {
     jsonModel.jMessage3
  
-  }
+  
   // else if (eventText === 'se') {
   //   msg = {
   //     "type": "flex",
@@ -154,7 +154,7 @@ function handleMessageText(event) {
   // }
   
   return client.replyMessage(event.replyToken, msg);
-
+  }
 }
 
 
