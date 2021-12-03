@@ -153,8 +153,9 @@ function handleMessageText(event) {
   //   }
   // }
   
-  return client.replyMessage(event.replyToken, msg);
   }
+  return client.replyMessage(event.replyToken, msg);
+
 }
 
 
