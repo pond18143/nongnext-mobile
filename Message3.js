@@ -2,9 +2,7 @@ var fs = require('fs');
 var dataJSON = fs.readFileSync("message3.json", "utf-8");
 
 // jMessage3();
-class JsonMessage {
-
-    async jMessage3() {
+function jMessage3() {
         // var count = 2;
         // var fs = require('fs');
         // var dataJSON = fs.readFileSync("message3.json", "utf-8");
@@ -64,5 +62,7 @@ class JsonMessage {
 
         return data
     }
-}
-module.exports = JsonMessage;
+
+// var a = jMessage3();
+// console.log(a);
+module.exports.jMessage3 = jMessage3;
