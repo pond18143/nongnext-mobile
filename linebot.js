@@ -43,12 +43,12 @@ function handleMessageText(event) {
     type: 'text',
     text: 'เออ หวัดดี'
   };
-
+  console.log(jsonModel.jMessage3)
   var eventText = event.message.text.toLowerCase();
 
   if (eventText === 'iphonese') {
     jsonModel.jMessage3
- 
+
   
   // else if (eventText === 'se') {
   //   msg = {
