@@ -9,6 +9,7 @@ const config = {
 }
 
 async function listBrand() {
+
     try {
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect(config)
@@ -28,12 +29,35 @@ async function listBrand() {
     } catch (err) {
         console.log(err)
     }
+
+}
+
+async function listBrandbyName(name) {
+    try {
+        // make sure that any items are correctly URL encoded in the connection string
+        await sql.connect(config)
+        // const result = await sql.query`select * from brand where id = ${value}`
+        var command = `SELECT * from brand WHERE name='${name}'`
+        const result = await sql.query(command)
+
+        // console.log(result.recordset[0])
+        // return model = {s
+        //     // name : result.recordset[0].name,
+        //     // describtion : result.recordset[0].describtion,
+
+        // }
+        // var b = await JSON.stringify(result.recordset[0].name);
+
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 async function listProduct(value) {
     try {
         await sql.connect(config)
-        var command = `SELECT name,capacity,color FROM items WHERE name = ${value}`
+        var command = `SELECT name,capacity,color FROM items WHERE name = '${value}'`
         const result = await sql.query(command);
         return result.recordset
     } catch (err) {

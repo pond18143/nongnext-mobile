@@ -1,6 +1,6 @@
 
 //maybe store log at start function
-function checkmtext(mtext,timestamp,userid,replyToken){
+function checkmtext(mtext,userid){
     var space=-1;
     var textcommand='';//use to check first command
     //check space in texet
@@ -25,7 +25,8 @@ function checkmtext(mtext,timestamp,userid,replyToken){
     {
         var list=require('./listData.js')
         console.log("list function");
-        list.ListData(mtext,userid,replyToken);
+        var data=list.ListData(mtext,userid);
+        return data;
     }else
     //space 3= add , buy
     if(space==3&&(textcommand=='add'|textcommand=='buy'))

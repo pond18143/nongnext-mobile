@@ -1,9 +1,9 @@
 var fs = require('fs');
-var db = require('./database')
+//var db = require('./database')
 // var dataJSON = fs.readFileSync("message3.json", "utf-8");
-var rawdata = fs.readFileSync('model/carouselModel.json');
+var rawdata = fs.readFileSync('../model/carouselModel.json');
 // jMessage3();
-async function jMessage3() {
+async function jMessage3(dataFBase,state) {
         // var count = 2;
         var data = JSON.parse(rawdata);
         // var baka = JSON.stringify(data, null,2);
@@ -11,12 +11,36 @@ async function jMessage3() {
         ///data.contents.comtents[0] == header
         ///data.contents.comtents[1] == middle
         ///data.contents.comtents[2] == fotter
-        var valuess = await db.listBrand()
+
         // console.dir(value[1].name)
-        let name = valuess[1].name
-        console.log(name)
+         var count = Object.keys(dataFBase).length;
+         if(state==1)
+         {
+         var fottertmp=data.contents.contents[2];
+         for(let t=0;t<count;t++)
+         {
+            if(t+1!=count)  data.contents.contents[t]=data.contents.contents[0];
+            else data.contents.contents[t]=fottertmp;
+         }
+         for(let i=0;i<count;i++)
+                 {
+                     data.contents.contents[i].hero.url = dataFBase[i].picture_url;
+                     data.contents.contents[i].body.contents[0].text = dataFBase[i].name;
+                     data.contents.contents[i].body.contents[2].contents[0].text = dataFBase[i].describtion; //rom 1
+                     data.contents.contents[i].body.contents[3].contents[0].text = ""; //price 1
+                     data.contents.contents[i].footer.contents[0].action.label = "Choose "+dataFBase[i].name;//buttom label
+                     data.contents.contents[i].footer.contents[0].action.text = "ls brand "+dataFBase[i].name;//button action
+                 }
+                 var data = JSON.stringify(data);
+                 return data;
+         }
+
+        console.log(dataFBase[0].name);
+
+
+
         // data.contents.contents[0].hero.url = "url"; //url 1
-        data.contents.contents[0].body.contents[0].text = name; //productname 1
+        data.contents.contents[0].body.contents[0].text = "name"; //productname 1
         data.contents.contents[0].body.contents[2].contents[0].text = "64"; //rom 1
         data.contents.contents[0].body.contents[3].contents[0].text = "14,000"; //price 1
         data.contents.contents[0].footer.contents[0].action.label = "add to cart";//buttom label
@@ -62,11 +86,11 @@ async function jMessage3() {
         // data.contents.contents[4]=data.contents.contents[1];
         // data.contents.contents[5]=data.contents.contents[1];
         // test 2  carosel อันแรกต้องมี 2 ปุ่ม
-        data.contents.contents[0].footer.contents[1]=data.contents.contents[0].footer.contents[0];
+//        data.contents.contents[0].footer.contents[1]=data.contents.contents[0].footer.contents[0];
 
         var data = JSON.stringify(data);
 
-        return data
+        return "data";
     }
 
 // var a = jMessage3();

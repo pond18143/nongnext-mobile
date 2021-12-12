@@ -1,4 +1,9 @@
-function ListData(mtext,userid,replyToken){
+const dataB = require('../model/database.js')
+const jsonModel = require('../model/contents.js')
+//var data=ListData("ls brand","asdef");
+//console.log(data);
+
+async function ListData(mtext,userid){
     var sectext='';
     var thirdtext='';
     var productname='';
@@ -27,10 +32,15 @@ function ListData(mtext,userid,replyToken){
     // console.log(sectext.length);
     // console.log("check = "+check);
     //list All brand
-        if(mtext=='ls brand'|mtext=='ls brand ')
+        if(mtext=='ls brand'|mtext=='ls brand ') //list all brand
         {
             console.log("ls all brand");
-        }else if(sectext=='brand'&&check!=-1&&thirdtext!='0') //5
+            var dataFBase=await dataB.listBrand();
+            var dataTJson=await jsonModel.jMessage3(dataFBase,1);
+//            console.log(dataTJson);
+//            var data="test all brand";
+            return dataTJson;
+        }else if(sectext=='brand'&&check!=-1&&thirdtext!='0') //5 list brand thirdtext=name
         {
             console.log("ls brand " +thirdtext);
         }else
@@ -43,7 +53,7 @@ function ListData(mtext,userid,replyToken){
             console.log("product = "+productname);
         }  else console.log("Format error.\nPlease Try again.");
     
-    return 1;
+    return data;
 }
 
 module.exports = { ListData };

@@ -46,13 +46,17 @@ async function handleMessageText(event) {
   // console.log(JSON.parse(jsonModel.jMessage3()))
   var eventText = event.message.text.toLowerCase();
 
-  if (eventText == 'iphonese') {
-    var msg = await jsonModel.jMessage3();
-    // msg = JSON.stringify(msg)
-
-    msg = JSON.parse(msg)
-  
-  }
+    const CheckState = require('./controller/ifstate.js')
+    var returnText=checkmtext(event.message.text,event.source.userid);
+    msg = JSON.parse(returnText);
+//  if (eventText == 'iphonese') {
+//
+//    var msg = await jsonModel.jMessage3();
+//    // msg = JSON.stringify(msg)
+//
+//    msg = JSON.parse(msg)
+//
+//  }
   return client.replyMessage(event.replyToken, msg);
 
 }
