@@ -1,6 +1,7 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 const jsonModel = require('./model/contents')
+const CheckState = require('./controller/ifstate.js')
 
 require('dotenv').config();
 
@@ -46,9 +47,8 @@ async function handleMessageText(event) {
   // console.log(JSON.parse(jsonModel.jMessage3()))
   var eventText = event.message.text.toLowerCase();
 
-    const CheckState = require('./controller/ifstate.js')
-    var returnText=checkmtext(event.message.text,event.source.userid);
-    msg = JSON.parse(returnText);
+    var returnText=await CheckState.checkmtext(event.message.text,event.source.userId);
+    msg = await JSON.parse(returnText);
 //  if (eventText == 'iphonese') {
 //
 //    var msg = await jsonModel.jMessage3();
