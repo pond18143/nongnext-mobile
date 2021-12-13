@@ -65,7 +65,9 @@ async function listProductbyName(name) {
 }
 
 module.exports.listBrand = listBrand;
-module.exports.listProduct = listProduct;
+module.exports.listProductbyName = listProductbyName;
+module.exports.listBrandbyName = listBrandbyName;
+
 
 
 // console.log(dataTest(1))
