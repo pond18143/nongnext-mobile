@@ -34,7 +34,9 @@ async function listBrandbyName(name) {
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect(config)
         // const result = await sql.query`select * from brand where id = ${value}`
-        var command = `SELECT * from brand WHERE name='${name}'`
+        var command = `SELECT m.name ,b.name ,m.describtion ,m.picture_url
+                               FROM model m ,brand b
+                               WHERE m.id_brand = b.id AND b.name = '${name}'`
         const result = await sql.query(command)
 
         // console.log(result.recordset[0])
@@ -51,10 +53,10 @@ async function listBrandbyName(name) {
     }
 }
 
-async function listProduct(value) {
+async function listProductbyName(name) {
     try {
         await sql.connect(config)
-        var command = `SELECT name,capacity,color FROM items WHERE name = '${value}'`
+        var command = `SELECT * FROM items WHERE name = '${name}'`
         const result = await sql.query(command);
         return result.recordset
     } catch (err) {

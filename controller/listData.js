@@ -34,23 +34,58 @@ async function ListData(mtext, userid) {
     {
         console.log("ls all brand");
         var dataFBase = await dataB.listBrand();
+        if(dataFBase==null||dataFBase==[])
+        {
+            var msg={
+                        type: 'text',
+                        text: 'State 1 wrong command. Please try again'
+                      }
+            return msg
+        }
         var dataTJson = await jsonModel.jMessage3(dataFBase, 1);
         // console.log(dataTJson)
         //    var data="test all brand";
         return dataTJson;
-    } else if (sectext == 'brand' && check != -1 && thirdtext != '0') //5 list brand thirdtext=name
+    }
+    else if (sectext == 'brand' && check != -1 && thirdtext != '0') //5 list brand thirdtext=name
     {
         console.log("ls brand " + thirdtext);
-    } else
-        if (sectext.length <= 4 && check == 2) //7
-        {
-            console.log("product id = " + sectext);
-        } else
-            if (check == 3) {
-                console.log("product = " + productname);
-            } else console.log("Format error.\nPlease Try again.");
+        var dataFBase = await dataB.listBrandbyName(thirdtext);
+         if(dataFBase==null||dataFBase==[])
+                {
+                    var msg={
+                                type: 'text',
+                                text: 'State 2 wrong command. Please try again'
+                              }
+                    return msg
+                }
+         var dataTJson = await jsonModel.jMessage3(dataFBase, 2);
+         return dataTJson;
+    }
+//    else if (sectext.length <= 4 && check == 2) //7
+//        {
+//            console.log("product id = " + sectext);
+//        }
+    else if (check == 3) {
+                console.log("ls product = " + productname);
+                var dataFBase = await dataB.listProductbyName(productname);
+                if(dataFBase==null||dataFBase==[])
+                {
+                      var msg={
+                               type: 'text',
+                               text: 'State 3 wrong command. Please try again'
+                               }
+                     return msg
+                }
+                         var dataTJson = await jsonModel.jMessage3(dataFBase, 3);
+                         return dataTJson;
 
-    return data;
+            } else console.log("Format error.\nPlease Try again.");
+    var msg={
+    type: 'text',
+    text: 'Format error. Please try again'
+    }
+       return msg
 }
 
 // module.exports = { ListData };
