@@ -47,16 +47,12 @@ async function handleMessageText(event) {
   // console.log(JSON.parse(jsonModel.jMessage3()))
   var eventText = event.message.text.toLowerCase();
 
-    var returnText=await CheckState.checkmtext(event.message.text,event.source.userId);
-    msg = await JSON.parse(returnText);
-//  if (eventText == 'iphonese') {
-//
-//    var msg = await jsonModel.jMessage3();
-//    // msg = JSON.stringify(msg)
-//
-//    msg = JSON.parse(msg)
-//
-//  }
+  var returnText = await CheckState.checkmtext(event.message.text, event.source.userId);
+  msg = await JSON.parse(returnText);
+
+  // if (eventText == 'cart') {
+  //   msg = 
+  // }
   return client.replyMessage(event.replyToken, msg);
 
 }

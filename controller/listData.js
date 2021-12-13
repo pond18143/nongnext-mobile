@@ -57,7 +57,6 @@ async function ListData(mtext, userid) {
         var dataFBase = await dataB.listBrandbyName(thirdtext);
         var objLength = Object.keys(dataFBase).length
         if (objLength == 0) {
-            console.log("1111")
             var msg = {
                 type: 'text',
                 text: 'State 2 wrong command. Please try again'

@@ -8,8 +8,6 @@ async function jMessage3(dataFBase, state) {
     // var count = 2;
     var data = JSON.parse(rawdata);
     // var baka = JSON.stringify(data, null,2);
-
-
     var count = Object.keys(dataFBase).length;
     if (state == 1) {
         var dbrand = await loopJson(count);
@@ -28,6 +26,7 @@ async function jMessage3(dataFBase, state) {
             data.contents.contents[i].footer.contents[0].action.label = "Choose " + dataFBase[i].name;//buttom label
             data.contents.contents[i].footer.contents[0].action.text = "ls brand " + dataFBase[i].name;//button action
         }
+        // delete data.contents.contents[4]
         var data = await JSON.stringify(data);
         return data;
     }
