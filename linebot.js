@@ -1,7 +1,8 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
-const jsonModel = require('./model/contents')
 const CheckState = require('./controller/ifstate.js')
+const { MongoClient } = require("mongodb");
+const url = "mongodb+srv://poramet:Pond0944234991@cluster0.myutl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 require('dotenv').config();
 
@@ -21,7 +22,6 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 });
 
 function handleEvent(event) {
-
   console.log(event);
   if (event.type === 'message' && event.message.type === 'text') {
     handleMessageEvent(event);
@@ -40,17 +40,27 @@ function handleMessageEvent(event) {
 }
 
 async function handleMessageText(event) {
+  const clientMongo = new MongoClient(url);
+  const dbName = "se";
+
+  await clientMongo.connect();
+  console.log("Connected correctly to server");
+  const db = clientMongo.db(dbName);
+  const col = db.collection("nongnext");
+  const p = await col.insertOne(event);
+  await clientMongo.close();
+
   var msg = {
     type: 'text',
     text: 'เออ หวัดดี'
   };
   // console.log(JSON.parse(jsonModel.jMessage3()))
-  var eventText = event.message.text.toLowerCase();
+  // var eventText = event.message.text.toLowerCase();
 
   var returnText = await CheckState.checkmtext(event.message.text, event.source.userId);
   msg = await JSON.parse(returnText);
 
-  // if (eventText == 'cart') {
+  // if (eventText == 'cart') {s
   //   msg = 
   // }
   return client.replyMessage(event.replyToken, msg);
