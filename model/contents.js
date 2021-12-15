@@ -9,6 +9,7 @@ async function jMessage3(dataFBase, state) {
     var data = JSON.parse(rawdata);
     // var baka = JSON.stringify(data, null,2);
     var count = Object.keys(dataFBase).length;
+    //list brands
     if (state == 1) {
         var dbrand = await loopJson(count);
         for (let r = 0; r < count - 3; r++) {
@@ -21,6 +22,7 @@ async function jMessage3(dataFBase, state) {
             data.contents.contents[i].body.contents[0].text = "" + dataFBase[i].name;
             data.contents.contents[i].body.contents[1].text = "Description";//color
             data.contents.contents[i].body.contents[2].contents[0].text = "" + dataFBase[i].describtion; //rom 1
+            data.contents.contents[i].body.contents[2].contents[1].text = " "
             data.contents.contents[i].body.contents[3].contents[0].text = " "; //price 1
             data.contents.contents[i].body.contents[3].contents[1].text = " "; //Baht
             data.contents.contents[i].footer.contents[0].action.label = "Choose " + dataFBase[i].name;//buttom label
@@ -30,6 +32,7 @@ async function jMessage3(dataFBase, state) {
         var data = await JSON.stringify(data);
         return data;
     }
+    // list brand model
     else if (state == 2) {
         var dbrand = await loopJson(count + 1);
         for (let r = 0; r < count - 3; r++) {
@@ -40,6 +43,7 @@ async function jMessage3(dataFBase, state) {
             data.contents.contents[i].body.contents[0].text = "" + dataFBase[i].name[0];
             data.contents.contents[i].body.contents[1].text = "Description";//color
             data.contents.contents[i].body.contents[2].contents[0].text = "" + dataFBase[i].describtion; //rom 1
+            data.contents.contents[i].body.contents[2].contents[1].text = " "
             data.contents.contents[i].body.contents[3].contents[0].text = " "; //price 1
             data.contents.contents[i].body.contents[3].contents[1].text = " "; //Baht
             data.contents.contents[i].footer.contents[0].action.label = "Choose " + dataFBase[i].name[0];//buttom label
@@ -48,6 +52,7 @@ async function jMessage3(dataFBase, state) {
         var data = await JSON.stringify(data);
         return data;
     }
+    // list product
     else if (state == 3) {
         var dbrand = await loopJson(count + 1);
         for (let r = 0; r < count - 3; r++) {
@@ -58,7 +63,7 @@ async function jMessage3(dataFBase, state) {
             data.contents.contents[i].body.contents[0].text = "" + dataFBase[i].name;
             data.contents.contents[i].body.contents[1].text = "" + dataFBase[i].color;//color
             data.contents.contents[i].body.contents[2].contents[0].text = "" + dataFBase[i].capacity; //rom 1
-            data.contents.contents[i].body.contents[2].contents[1].text = "" + dataFBase[i].unit; //rom 1
+            data.contents.contents[i].body.contents[2].contents[1].text = " " + dataFBase[i].unit; //rom 1
             data.contents.contents[i].body.contents[3].contents[0].text = "" + dataFBase[i].price; //price 1
             data.contents.contents[i].body.contents[3].contents[1].text = " Baht"; //Baht
             data.contents.contents[i].footer.contents[0].action.label = "Add to Carts ";//buttom label

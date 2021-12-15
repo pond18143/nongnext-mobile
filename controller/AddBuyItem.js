@@ -108,7 +108,7 @@ async function BuyItem(userid)
         if(DBUpTran==1){
             var msg = {
                 type: 'text',
-                text: 'Update Transaction Complete.'
+                text: 'Buy Complete.'
             }
             return JSON.stringify(msg);
         }

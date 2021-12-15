@@ -1,4 +1,5 @@
 const dataB = require('../model/database.js')
+const request = require('request')
 const token = 'qGBrLfdlShrRBonCjZeGiXRnty8Q9Sozoj4J65djTDm';
 async function CallCen(userid)
 {
@@ -140,7 +141,8 @@ async function EndCallCen(userid)
 }
 async function SelectCallcen(userid)
 {
-    var DBFCallcen=await dataB.listCallcenterbyid(userid);
+    
+    var DBFCallcen = await dataB.listCallcenterbyid(userid);
     if(Object.keys(DBFCallcen).length==0)//if == 0 insert
     {
         return 0;

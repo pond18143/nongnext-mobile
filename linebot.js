@@ -65,7 +65,8 @@ async function handleMessageText(event) {
   // if (eventText == 'cart') {s
   //   msg = 
   // }
-  return client.replyMessage(event.replyToken, msg);
+  if (returnText != 1) {
+  return client.replyMessage(event.replyToken, msg);}
 
 }
 

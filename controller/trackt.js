@@ -4,9 +4,9 @@ async function TrackingTr(mtext,userid)
 {
     var textsplit=mtext.split(' ');
     
-    if(textsplit[1]!=null)
+    if(textsplit[1]==null)
     {
-        var DBTran =await dataB.Transaction(userid,0);
+        var DBTran =await dataB.Transaction(userid,1);
         if(Object.keys(DBTran).length==0)
         {
             var msg = {
@@ -18,8 +18,10 @@ async function TrackingTr(mtext,userid)
         else
         {
         var tracktext=''
-        if(DBTran[0].track==0) tracktext='Prepare';
-        else tracktext='Complete';
+        if(DBTran[0].track==0) tracktext='Checking Payment Bill';
+        else if(DBTran[0].track==1) tracktext='Payment Complete';
+        else if(DBTran[0].track==2) tracktext='Prepare for Sending';
+        else tracktext='Sending Complete';
         var msg = {
             type: 'text',
             text: 'Tracking Status = '+tracktext
@@ -41,11 +43,13 @@ async function TrackingTr(mtext,userid)
         }
         else
         {
-            if(DBTran[0].track==0) tracktext='Prepare';
-            else tracktext='Complete';
+            if(DBTran[0].track==0) tracktext='Checking Payment Bill';
+            else if(DBTran[0].track==1) tracktext='Payment Complete';
+            else if(DBTran[0].track==2) tracktext='Prepare for Sending';
+            else tracktext='Sending Complete';
             var msg = {
                          type: 'text',
-                        text: 'Tracking Status = '+DBTran[0].track
+                        text: 'Tracking Status = '+tracktext
                     }
             return JSON.stringify(msg);
 

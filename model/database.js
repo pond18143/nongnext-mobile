@@ -179,7 +179,7 @@ async function UpdateStatustoCall_center(userid,value) {
 async function listUserbyid(id) {
     try {
         await sql.connect(config)
-        var command = `SELECT TOP 1 * FROM users WHERE id_linebot = '${id} ORDER BY id DESC'`
+        var command = `SELECT TOP 1 * FROM users WHERE id_linebot = '${id}' ORDER BY id DESC`
         const result = await sql.query(command);
         return result.recordset
     } catch (err) {
@@ -189,7 +189,7 @@ async function listUserbyid(id) {
 async function UpdateTransacStatus(userid,TranID,sum) {
     try {
         await sql.connect(config)
-        var command = `UPDATE transactions SET total='${sum}',status=1 WHERE id_linebot='${userid} and id= '${TranID}'`
+        var command = `UPDATE transactions SET total='${sum}',status=1, track=0 WHERE id_linebot='${userid}' and id= '${TranID}'`
         const result = await sql.query(command);
         return "1"
     } catch (err) {
@@ -223,10 +223,16 @@ module.exports.InsertItemtoCart = InsertItemtoCart;
 module.exports.RemoveItemFromCart=RemoveItemFromCart;
 module.exports.ClearItemFromCart=ClearItemFromCart;
 //call cneter 
-module.exports={listCallcenterbyid,InsertUsertoCall_center,UpdateStatustoCall_center };
+module.exports.listCallcenterbyid=listCallcenterbyid;
+module.exports.InsertUsertoCall_center=InsertUsertoCall_center;
+module.exports.UpdateStatustoCall_center=UpdateStatustoCall_center;
+// module.exports={listCallcenterbyid,InsertUsertoCall_center,UpdateStatustoCall_center };
 //buy adddata
-module.exports={listUserbyid,UpdateTransacStatus,InserttoUserData,TransactionUUid};
-
+module.exports.listUserbyid=listUserbyid;
+module.exports.UpdateTransacStatus=UpdateTransacStatus;
+module.exports.InserttoUserData=InserttoUserData;
+module.exports.TransactionUUid=TransactionUUid;
+// module.exports={listUserbyid,UpdateTransacStatus,InserttoUserData,TransactionUUid};
 
 // console.log(dataTest(1))
 
