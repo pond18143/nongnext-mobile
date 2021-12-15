@@ -83,10 +83,20 @@ async function Transaction(userid,status) {
         console.log(err)
     }
 }
+async function TransactionUserId(userid) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT TOP 1 * FROM transactions WHERE id_linebot = '${userid}' ORDER BY id DESC`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
 async function listcartid(Tid,userid) {
     try {
         await sql.connect(config)
-        var command = `SELECT * FROM carts WHERE id_trasaction = '${Tid} and user_if ='${userid}'`
+        var command = `SELECT * FROM carts WHERE id_transaction = '${Tid}' AND user_id = '${userid}'`
         const result = await sql.query(command);
         return result.recordset
     } catch (err) {
@@ -107,7 +117,7 @@ async function InsertTransaction(userid) {
 async function InsertItemtoCart(TranID,itemid,userid) {
     try {
         await sql.connect(config)
-        var command = `INSERT INTO transactions (id_transaction,item_id,user_id) VALUES('${TranID}','${itemid}','${userid}')`
+        var command = `INSERT INTO carts (id_transaction,item_id,user_id) VALUES('${TranID}','${itemid}','${userid}')`
         const result = await sql.query(command);
         return "1"
     } catch (err) {
@@ -138,6 +148,7 @@ module.exports.listProductbyid = listProductbyid;
 module.exports.Transaction = Transaction;
 module.exports.listcartid = listcartid;
 module.exports.InsertTransaction = InsertTransaction;
+module.exports.TransactionUserId = TransactionUserId;
 module.exports.InsertItemtoCart = InsertItemtoCart;
 //Remove
 module.exports.RemoveItemFromCart=RemoveItemFromCart;

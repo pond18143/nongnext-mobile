@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const dataB = require('../model/database.js')
 
 async function AddItem(mtext,userid)
@@ -8,47 +9,56 @@ async function AddItem(mtext,userid)
     if(sectext=="product"){ 
         //check product is valid
         var dataPFBase = await dataB.listProductbyid(thirdtext);
-        if (dataPFBase == null || dataPFBase == []) {
+        if (dataPFBase[0] == null || dataPFBase[0] == []) {
             var msg = {
                 type: 'text',
                 text: 'Add State 1 wrong command. Please try again'
             }
             return JSON.stringify(msg)
         }   
-        var Transactionid;
-        var dataFBaseTra=await dataB.Transaction(userid);
-        if(dataFBaseTra==null||dataFBaseTra==[]){
+        var Transactionid = 0;
+        var dataFBaseTra=await dataB.TransactionUserId(userid);
+        if(dataFBaseTra[0]==null||dataFBaseTra[0]==[] ||Object.keys(dataFBaseTra).length == 0){
             ///insert Transaction
-            var insertT= dataB.InsertTransaction(userid);
-            Transactionid=1;
+            var insertT= await dataB.InsertTransaction(userid);
+            // Transactionid=1;
             var msg1 = {
                 type: 'text',
                 text: 'Insert Transaction Error '
             }
             if(insertT!=1) return JSON.stringify(msg1)
         }
-        else if(dataFBaseTra.status==1){
+        else if(dataFBaseTra[0].status==1){
             //create new transaction
-            var insertT= dataB.InsertTransaction(userid);
-            Transactionid=1;
+            var insertT= await dataB.InsertTransaction(userid);
+            // Transactionid=1;
             var msg1 = {
                 type: 'text',
                 text: 'Insert Transaction Error '
             }
             if(insertT!=1) return JSON.stringify(msg1)
-            Transactionid=dataFBaseTra.id+1;
+            // Transactionid=dataFBaseTra.id+1;
         }
-        var Itemid =dataPFBase.id;
-        var dataFBaseCart=await dataB.listcartid(Transactionid,userid);
-        var objLength = Object.keys(dataFBaseCart).length
-        if(objLength<=10){
+        var Transactionids = await dataB.Transaction(userid,0)
+        // Transactionid = ""+Transactionids.id
+        var Itemid =dataPFBase[0].id;
+        var dataFBaseCart=await dataB.listcartid(Transactionids[0].id,userid);
+        // var objLength = dataFBaseCart
+        var a= Object.keys(dataFBaseCart).length
+        if(Object.keys(dataFBaseCart).length <= 10){
         //insert item to cart
         var msg1 = {
             type: 'text',
             text: 'Insert Item Error '
         }
-        var dataIntoCart=await dataB.InsertItemtoCart(Transactionid,Itemid,userid);
-        if(dataIntoCart!=1) return JSON.stringify(msg1);
+        var msg2 = {
+            type: 'text',
+            text: 'Insert Item Complete '
+        }        
+        var dataIntoCart=await dataB.InsertItemtoCart(Transactionids[0].id,Itemid,userid);
+        // if(dataIntoCart!=1) return JSON.stringify(msg1);
+        if(dataIntoCart==1) return JSON.stringify(msg2)
+        else return JSON.stringify(msg1)
         }else{
             var msg = {
                 type: 'text',
@@ -56,11 +66,6 @@ async function AddItem(mtext,userid)
             }
             return JSON.stringify(msg)
         }
-        var msg = {
-            type: 'text',
-            text: 'Add product id :'+thirdtext+"complete"
-        }
-         return JSON.stringify(msg)
     }
 
 }

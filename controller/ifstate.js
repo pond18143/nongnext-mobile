@@ -49,6 +49,7 @@ async function checkmtext(mtext, userid) {
         {
             console.log("Remove function");
             var data=await RmItem.RemoveItemfromCart(mtext,userid);
+            return data;
         }
         
     //default return
