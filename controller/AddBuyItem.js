@@ -97,19 +97,32 @@ async function BuyItem(userid)
         var objLength = Object.keys(DBFCart).length;
         var Pitem=[];
         var sum=0;
-        for(let l=0;l<objLength;l++){
-            Pitem[l]=await dataB.listProductbyid(DBFCart[l].item_id);
-            sum+=parseInt(Pitem[l][0].price);
-        }
+        
+        // listProductbyid(id)
+        // UpdateItemByid(itemid,value)
 
+        for(let l=0;l<objLength;l++){
+            var tmpquality=0;
+            Pitem[l]=await dataB.listProductbyid(DBFCart[l].item_id);
+            tmpquality=Pitem[l][0].quantity;
+            if(tmpquality!=0){
+                tmpquality-=1;
+                var DBUpItem=await dataB.UpdateItemByid(Pitem[l][0].id,tmpquality);
+            }
+            sum+=parseInt(Pitem[l][0].price);
+        }        
+       
+            
             //Update to totla chang status
             //UpdateTransacStatus(userid,TranID,sum)
         var DBUpTran= await dataB.UpdateTransacStatus(userid,DBTran[0].id,sum);
         if(DBUpTran==1){
+            ///return payment QR code
             var msg = {
-                type: 'text',
-                text: 'Buy Complete.'
-            }
+                "type": "image",
+                "originalContentUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg",
+                "previewImageUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg"
+                }
             return JSON.stringify(msg);
         }
         else{

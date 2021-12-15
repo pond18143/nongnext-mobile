@@ -196,6 +196,16 @@ async function UpdateTransacStatus(userid,TranID,sum) {
         console.log(err)
     }
 }
+async function UpdateItemByid(itemid,value) {/////update
+    try {
+        await sql.connect(config)
+        var command = `UPDATE items SET quantity='${value}' WHERE id='${itemid}'`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
 //adddata Function
 async function InserttoUserData(userid,name,phone,adr) {
     try {
@@ -243,6 +253,7 @@ module.exports.listUserbyid=listUserbyid;
 module.exports.UpdateTransacStatus=UpdateTransacStatus;
 module.exports.InserttoUserData=InserttoUserData;
 module.exports.TransactionUUid=TransactionUUid;
+module.exports.UpdateItemByid=UpdateItemByid
 // module.exports={listUserbyid,UpdateTransacStatus,InserttoUserData,TransactionUUid};
 module.exports.InsertUrl=InsertUrl;
 
