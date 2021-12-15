@@ -1,56 +1,62 @@
-var list = require('./listData.js')
-// var addbuy=require('./AddBuyItem.js')
+var list = require('./listData.js');
+var addbuy=require('./AddBuyItem.js');
+var cart=require('./Carts.js');
+var receipt=require('./Receipt.js');
+var RmItem=require('./Removeitem.js');
+const { text } = require('body-parser');
 // var CheckData=require('./CheckData.js')
 // var RemoveItem=require('./RemoveItem.js')
 
 //maybe store log at start function
 async function checkmtext(mtext, userid) {
-    var space = -1;
+
     var textcommand = '';//use to check first command
     //check space in texet
-    for (let i = 0; i < mtext.length; i++) {
-        if (mtext[i] == ' ') {
-            space = parseInt(i);
-            break;
-        }
-        textcommand += mtext[i].toLowerCase();
-        if (i == mtext.lenght - 1) {
-            console.log("error");
-            textcommand = '';
-        }
-    }
-
-    console.log(space);
+    var textsplit=mtext.split(' ');
+    var textcommand=textsplit[0];
     console.log(textcommand);
 
-    //space 2 = ls
-    if (space == 2 && textcommand == 'ls') {
+    //ls
+    if (textcommand == 'ls') {
         console.log("list function");
         var data = await list.ListData(mtext, userid);
         return data;
     } else
-        //space 3= add , buy
-        if (space == 3 && (textcommand == 'add' | textcommand == 'buy')) {
+        //add , buy
+        if (textcommand == 'add' | textcommand == 'buy') {
             console.log("addbuy function");
             if (textcommand == 'add') {
-                addbuy.AddItem(mtext, userid, replyToken);
+                var data=await addbuy.AddItem(mtext, userid);
+                return data;
             } else {
-                addbuy.BuyItem(mtext, userid, replyToken);
+                var data=await addbuy.BuyItem(mtext, userid);
+                return data;
             }
-
-        } else
-            //space 4=check 
-            if (space == 5 && textcommand == 'check') {
-                console.log("check function");
-                CheckData.CheckData(mtext, userid, replyToken);
-                // }else
-                //space 6=remove
-                if (space == 6 && textcommand == 'remove') {
-                    console.log("removefunction");
-                    RemoveItem.RemoveItem(mtext, userid, replyToken);
-                } else console.log("Format error.\nPlease Try again.");
-
-            }
+        } 
+        else if(textcommand=='cart')//cart view cart
+        {  
+            console.log("Cart function");
+            var data=await cart.lsCart(userid);
+            return data;
+        }
+        else if(textcommand=='receipt') //reception transaction
+        {
+            console.log("Receipt function");
+            var data=await receipt.receipt(userid);
+            return data;
+        }
+        else if(textcommand=='remove') //remove data
+        {
+            console.log("Remove function");
+            var data=await RmItem.RemoveItemfromCart(mtext,userid);
+        }
+        
+    //default return
+    var msg = {
+        type: 'text',
+        text: 'This is default message'
+    }
+    return JSON.stringify(msg);
 }
 // module.exports = { checkmtext };
   module.exports.checkmtext = checkmtext;

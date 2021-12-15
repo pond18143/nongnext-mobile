@@ -1,39 +1,18 @@
 const dataB = require('../model/database.js')
 const jsonModel = require('../model/contents.js');
-const e = require('express');
+// const e = require('express');
 //var data=ListData("ls brand","asdef");
 //console.log(data);
 
 async function ListData(mtext, userid) {
-    // var sectext = '';
-    // var thirdtext = '';
-    // var productname = '';
-    // var check = 0;
-    // for (let i = 3; i < mtext.length; i++) {
-    //     if (check == 0 && mtext[i] != ' ') sectext += mtext[i];
-    //     if (sectext == 'brand') {
-    //         check = 1;
-    //         if (mtext.length >= 15) { //max char of "ls brand xxxx" xxxx= brand id
-    //             check = -1;
-    //             console.log("Format error.\nPlease Try again.");
-    //             break;
-    //         } else if (i >= 9) thirdtext += mtext[i];
-    //     } else if (sectext.length <= 4 && i == mtext.length - 1) {
-    //         check = 2;
-    //         break;
-    //     } else if (sectext.length > 4 && check != 3) {
-    //         check = 3;
-    //     }
-    //     productname += mtext[i];
-    // }
+    
     var textsplit = mtext.split(' ');
     var productname = textsplit[2] + ' ' + textsplit[3]
     var sectext = textsplit[1];
     var thirdtext = textsplit[2];
-    // console.log("List Data ="+sectext);
-    // console.log(thirdtext.length);
-    // console.log(sectext.length);
-    // console.log("check = "+check);
+    
+
+    
     //list All brand
     if (mtext == 'ls brand' | mtext == 'ls brand ') //list all brand
     {
@@ -42,7 +21,7 @@ async function ListData(mtext, userid) {
         if (dataFBase == null || dataFBase == []) {
             var msg = {
                 type: 'text',
-                text: 'State 1 wrong command. Please try again'
+                text: 'List State 1 wrong command. Please try again'
             }
             return JSON.stringify(msg)
         }
@@ -59,7 +38,7 @@ async function ListData(mtext, userid) {
         if (objLength == 0) {
             var msg = {
                 type: 'text',
-                text: 'State 2 wrong command. Please try again'
+                text: 'List State 2 wrong command. Please try again'
             }
             return JSON.stringify(msg)
         }
@@ -84,17 +63,17 @@ async function ListData(mtext, userid) {
         if (dataFBase == null || dataFBase == []) {
             var msg = {
                 type: 'text',
-                text: 'State 3 wrong command. Please try again'
+                text: 'List State 3 wrong command. Please try again'
             }
             return JSON.stringify(msg)
         }
         var dataTJson = await jsonModel.jMessage3(dataFBase, 3);
         return dataTJson;
 
-    } else console.log("Format error.\nPlease Try again.");
+    } else console.log("List Format error.\nPlease Try again.");
     var msg = {
         type: 'text',
-        text: 'Format error. Please try again'
+        text: 'List Format error. Please try again'
     }
     return JSON.stringify(msg)
 }

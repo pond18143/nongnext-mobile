@@ -1,5 +1,5 @@
 const sql = require('mssql')
-
+var uuid = require('uuid');
 const config = {
     user: 'sa',
     password: 'P@ssw0rd',
@@ -62,12 +62,85 @@ async function listProductbyName(name) {
     }
 }
 
+//////////////Add to cart
+async function listProductbyid(id) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT * FROM items WHERE id = '${id}'`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function Transaction(userid,status) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT TOP 1 * FROM transactions WHERE id_linebot = '${userid}'and status='${status}' ORDER BY id DESC`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function listcartid(Tid,userid) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT * FROM carts WHERE id_trasaction = '${Tid} and user_if ='${userid}'`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function InsertTransaction(userid) {
+    try {
+        var uuid1=uuid.v4()
+        await sql.connect(config)
+        var command = `INSERT INTO transactions (uuid,id_linebot,status) VALUES('${uuid1}','${userid}',0)`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function InsertItemtoCart(TranID,itemid,userid) {
+    try {
+        await sql.connect(config)
+        var command = `INSERT INTO transactions (id_transaction,item_id,user_id) VALUES('${TranID}','${itemid}','${userid}')`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function RemoveItemFromCart(userid,TranID,CartID) {
+    try {
+        await sql.connect(config)
+        var command = `DELETE FROM carts WHERE id_transaction='${TranID}' and id='${CartID}' and user_id='${userid}'`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
+
+
+
+
 module.exports.listBrand = listBrand;
 module.exports.listProductbyName = listProductbyName;
 module.exports.listBrandbyName = listBrandbyName;
-
-
-
+//Add
+module.exports.listProductbyid = listProductbyid;
+module.exports.Transaction = Transaction;
+module.exports.listcartid = listcartid;
+module.exports.InsertTransaction = InsertTransaction;
+module.exports.InsertItemtoCart = InsertItemtoCart;
+//Remove
+module.exports.RemoveItemFromCart=RemoveItemFromCart;
 // console.log(dataTest(1))
 
 // async function main(){
