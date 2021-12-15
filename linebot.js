@@ -3,6 +3,8 @@ const line = require('@line/bot-sdk');
 const CheckState = require('./controller/ifstate.js')
 const { MongoClient } = require("mongodb");
 const url = "mongodb+srv://poramet:Pond0944234991@cluster0.myutl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const request = require('request')
+const token = 'qGBrLfdlShrRBonCjZeGiXRnty8Q9Sozoj4J65djTDm';
 
 require('dotenv').config();
 

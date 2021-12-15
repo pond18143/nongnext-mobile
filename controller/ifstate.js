@@ -1,10 +1,11 @@
 var list = require('./listData.js');
-var addbuy=require('./AddBuyItem.js');
-var cart=require('./Carts.js');
-var receipt=require('./Receipt.js');
-var RmItem=require('./Removeitem.js');
-var ClearCart=require('./clearcart.js');
+var addbuy = require('./AddBuyItem.js');
+var cart = require('./Carts.js');
+var receipt = require('./Receipt.js');
+var RmItem = require('./Removeitem.js');
+var ClearCart = require('./clearcart.js');
 const { text } = require('body-parser');
+const token = 'qGBrLfdlShrRBonCjZeGiXRnty8Q9Sozoj4J65djTDm';
 // var CheckData=require('./CheckData.js')
 // var RemoveItem=require('./RemoveItem.js')
 
@@ -13,8 +14,8 @@ async function checkmtext(mtext, userid) {
 
     var textcommand = '';//use to check first command
     //check space in texet
-    var textsplit=mtext.split(' ');
-    var textcommand=textsplit[0];
+    var textsplit = mtext.split(' ');
+    var textcommand = textsplit[0];
     console.log(textcommand);
 
     //ls
@@ -27,38 +28,54 @@ async function checkmtext(mtext, userid) {
         if (textcommand == 'add' | textcommand == 'buy') {
             console.log("addbuy function");
             if (textcommand == 'add') {
-                var data=await addbuy.AddItem(mtext, userid);
+                var data = await addbuy.AddItem(mtext, userid);
                 return data;
             } else {
-                var data=await addbuy.BuyItem(mtext, userid);
+                var data = await addbuy.BuyItem(mtext, userid);
                 return data;
             }
-        } 
-        else if(textcommand=='cart')//cart view cart
-        {  
+        }
+        else if (textcommand == 'cart')//cart view cart
+        {
             console.log("Cart function");
-            var data=await cart.lsCart(userid);
+            var data = await cart.lsCart(userid);
             return data;
         }
-        else if(textcommand=='receipt') //reception transaction
+        else if (textcommand == 'receipt') //reception transaction
         {
             console.log("Receipt function");
-            var data=await receipt.receipt(userid);
+            var data = await receipt.receipt(userid);
             return data;
         }
-        else if(textcommand=='remove') //remove data
+        else if (textcommand == 'remove') //remove data
         {
             console.log("Remove function");
-            var data=await RmItem.RemoveItemfromCart(mtext,userid);
+            var data = await RmItem.RemoveItemfromCart(mtext, userid);
             return data;
         }
-        else if(textcommand=='clear')//clear cart
+        else if (textcommand == 'clear')//clear cart
         {
             console.log("Clear cart function");
-            var data=await ClearCart.clearCart(mtext,userid);
+            var data = await ClearCart.clearCart(mtext, userid);
             return data;
         }
-        
+        else if (textcommand == 'call center') {
+            console.log("Call center");
+            var msgNoti = 'Call Center : ' + userid;
+            request({
+                method: 'POST',
+                uri: 'https://notify-api.line.me/api/notify',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                'auth': {
+                    'bearer': token
+                }, form: {
+                    message: msgNoti,
+                }
+            })
+        }
+
     //default return
     var msg = {
         type: 'text',
@@ -67,4 +84,4 @@ async function checkmtext(mtext, userid) {
     return JSON.stringify(msg);
 }
 // module.exports = { checkmtext };
-  module.exports.checkmtext = checkmtext;
+module.exports.checkmtext = checkmtext;
