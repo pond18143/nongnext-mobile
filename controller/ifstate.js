@@ -3,6 +3,7 @@ var addbuy=require('./AddBuyItem.js');
 var cart=require('./Carts.js');
 var receipt=require('./Receipt.js');
 var RmItem=require('./Removeitem.js');
+var ClearCart=require('./clearcart.js');
 const { text } = require('body-parser');
 // var CheckData=require('./CheckData.js')
 // var RemoveItem=require('./RemoveItem.js')
@@ -49,6 +50,12 @@ async function checkmtext(mtext, userid) {
         {
             console.log("Remove function");
             var data=await RmItem.RemoveItemfromCart(mtext,userid);
+            return data;
+        }
+        else if(textcommand=='clear')//clear cart
+        {
+            console.log("Clear cart function");
+            var data=await ClearCart.clearCart(mtext,userid);
             return data;
         }
         

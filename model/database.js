@@ -124,10 +124,21 @@ async function InsertItemtoCart(TranID,itemid,userid) {
         console.log(err)
     }
 }
+//Remove
 async function RemoveItemFromCart(userid,TranID,CartID) {
     try {
         await sql.connect(config)
         var command = `DELETE FROM carts WHERE id_transaction='${TranID}' and id='${CartID}' and user_id='${userid}'`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function ClearItemFromCart(userid,TranID) {
+    try {
+        await sql.connect(config)
+        var command = `DELETE FROM carts WHERE id_transaction='${TranID}' and user_id='${userid}'`
         const result = await sql.query(command);
         return "1"
     } catch (err) {
@@ -152,6 +163,7 @@ module.exports.TransactionUserId = TransactionUserId;
 module.exports.InsertItemtoCart = InsertItemtoCart;
 //Remove
 module.exports.RemoveItemFromCart=RemoveItemFromCart;
+module.exports.ClearItemFromCart=ClearItemFromCart;
 // console.log(dataTest(1))
 
 // async function main(){

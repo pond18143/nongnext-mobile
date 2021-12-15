@@ -10,6 +10,7 @@ async function lsCart(userid)
     var DBTransac= await dataB.Transaction(userid,0);
     if (DBTransac == null || DBTransac[0] == [] || Object.keys(DBTransac).length == 0) {
         var data = JSON.parse(rawdata);
+        data.contents.footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
         var data = await JSON.stringify(data);
         return data;
     }
@@ -30,11 +31,13 @@ async function lsCart(userid)
     if(objLength==0)
     {
         var data = JSON.parse(rawdata);
+        data.contents.footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
         var data = await JSON.stringify(data);
         return data;
     }
     else if(objLength==1) {
       var data1 = JSON.parse(rawdata2);
+        data1.contents.footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
         data1.contents.contents[0].body.contents[1].contents[1].text=""+sum; ///sum text=0
         data1.contents.contents[1].hero.url=""+Pitem[0][0].picture_url; //product picture
         data1.contents.contents[1].body.contents[0].text=""+Pitem[0][0].name; //product name
@@ -42,12 +45,13 @@ async function lsCart(userid)
         data1.contents.contents[1].body.contents[2].contents[0].text=""+Pitem[0][0].capacity; //product capacity
         data1.contents.contents[1].body.contents[2].contents[1].text=""+Pitem[0][0].unit;//unit
         data1.contents.contents[1].body.contents[3].contents[0].text=""+Pitem[0][0].price; //product price
-        data1.contents.contents[1].footer.contents[0].action.text="remove "+dataFBaseCart[0].user_id+" "+dataFBaseCart[0].id_transaction+" "+dataFBaseCart[0].id;///remove text
+        data1.contents.contents[1].footer.contents[0].action.text="remove "+dataFBaseCart[0].id_transaction+" "+dataFBaseCart[0].id;///remove text
         var data = await JSON.stringify(data1);
         return data;
     }
     else if(objLength>1&&objLength<=11){
       var data1 = JSON.parse(rawdata2);
+        data1.contents.footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
         data1.contents.contents[0].body.contents[1].contents[1].text=""+sum; ///sum text=0
         var nData=[];
         nData=await loopJson(objLength);///not sure
@@ -61,7 +65,7 @@ async function lsCart(userid)
         data1.contents.contents[i+1].body.contents[2].contents[0].text=""+Pitem[i][0].capacity; //product capacity
         data1.contents.contents[i+1].body.contents[2].contents[1].text=""+Pitem[i][0].unit;//unit
         data1.contents.contents[i+1].body.contents[3].contents[0].text=""+Pitem[i][0].price; //product price
-        data1.contents.contents[i+1].footer.contents[0].action.text="remove "+dataFBaseCart[i].user_id+" "+dataFBaseCart[i].id_transaction+" "+dataFBaseCart[i].id;///remove text
+        data1.contents.contents[i+1].footer.contents[0].action.text="remove "+dataFBaseCart[i].id_transaction+" "+dataFBaseCart[i].id;///remove text
         }
         var data = await JSON.stringify(data1);
         return data;
