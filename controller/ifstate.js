@@ -4,8 +4,13 @@ var cart = require('./Carts.js');
 var receipt = require('./Receipt.js');
 var RmItem = require('./Removeitem.js');
 var ClearCart = require('./clearcart.js');
+///Callcenter
+var Callcen = require('./Call_center.js');
+
 const { text } = require('body-parser');
 const token = 'qGBrLfdlShrRBonCjZeGiXRnty8Q9Sozoj4J65djTDm';
+//database
+
 // var CheckData=require('./CheckData.js')
 // var RemoveItem=require('./RemoveItem.js')
 
@@ -16,8 +21,11 @@ async function checkmtext(mtext, userid) {
     //check space in texet
     var textsplit = mtext.split(' ');
     var textcommand = textsplit[0];
-    console.log(textcommand);
-
+    var sectext=textsplit[1];
+    ///adddata command
+    var textaddate=mtext.split('|');
+    var checkStatus = await Callcen.SelectCallcen(userid);
+    if(checkStatus==0){
     //ls
     if (textcommand == 'ls') {
         console.log("list function");
@@ -26,14 +34,23 @@ async function checkmtext(mtext, userid) {
     } else
         //add , buy
         if (textcommand == 'add' | textcommand == 'buy') {
-            console.log("addbuy function");
+            
             if (textcommand == 'add') {
+                console.log("add function");
                 var data = await addbuy.AddItem(mtext, userid);
                 return data;
             } else {
-                var data = await addbuy.BuyItem(mtext, userid);
+                console.log("buy function");
+                var data = await addbuy.BuyItem(userid);
                 return data;
             }
+        }
+        else if(textaddate[0]=='adddata')
+        {
+                console.log("adddata function");
+                var data = await addbuy.Adddata(mtext, userid);
+                return data;
+
         }
         else if (textcommand == 'cart')//cart view cart
         {
@@ -59,22 +76,42 @@ async function checkmtext(mtext, userid) {
             var data = await ClearCart.clearCart(mtext, userid);
             return data;
         }
-        else if (textcommand == 'call center') {
-            console.log("Call center");
-            var msgNoti = 'Call Center : ' + userid;
-            request({
-                method: 'POST',
-                uri: 'https://notify-api.line.me/api/notify',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                'auth': {
-                    'bearer': token
-                }, form: {
-                    message: msgNoti,
-                }
-            })
+        else if(textcommand=='track')///track
+        {
+            console.log("Track Transaction function");
+            var data = await ClearCart.clearCart(mtext, userid);
+            return data;
         }
+        ////Cal Center =1 
+        else if (textcommand =='call'&&sectext=='center') {
+            console.log("Call center");
+            // select data from table call_center sort by id_linebot
+           var data= await Callcen.CallCen(userid);
+           return data;
+        }
+        else if(textcommand=='end'&&sectext=='call')
+        {
+            console.log("End Call center");
+            var data=await CallCen.EndCallCen(userid);
+            return data;
+        }
+        
+    }///Endif checkstatus
+    else if(checkStatus==1)
+    {
+        if (textcommand =='call'&&sectext=='center') {
+            console.log("Call center");
+            // select data from table call_center sort by id_linebot
+           var data= await Callcen.CallCen(userid);
+           return data;
+        }
+        else if(textcommand=='end'&&sectext=='call')
+        {
+            console.log("End Call center");
+            var data=await CallCen.EndCallCen(userid);
+            return data;
+        }
+    }
 
     //default return
     var msg = {

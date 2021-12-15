@@ -9,14 +9,13 @@ async function AddItem(mtext,userid)
     if(sectext=="product"){ 
         //check product is valid
         var dataPFBase = await dataB.listProductbyid(thirdtext);
-        if (dataPFBase[0] == null || dataPFBase[0] == []) {
+        if (dataPFBase[0] == null || dataPFBase[0] == []||Object.keys(dataPFBase).length == 0) {
             var msg = {
                 type: 'text',
                 text: 'Add State 1 wrong command. Please try again'
             }
             return JSON.stringify(msg)
         }   
-        var Transactionid = 0;
         var dataFBaseTra=await dataB.TransactionUserId(userid);
         if(dataFBaseTra[0]==null||dataFBaseTra[0]==[] ||Object.keys(dataFBaseTra).length == 0){
             ///insert Transaction
@@ -70,11 +69,97 @@ async function AddItem(mtext,userid)
 
 }
 
-async function BuyItem(mtext,userid)
+async function BuyItem(userid)
 {
-    if(mtext.toLowerCase()=='buy confirm') console.log("Buy confirm")
-    else console.log("Wrong command");
+    ///add buy check user table if data is null sent command that user need to do
+    var DBSelectUser=await dataB.listUserbyid(userid);
+    if(Object.keys(DBSelectUser).length==0){
+        var msg = {
+            type: 'text',
+            text: 'Please enter Format "adddata|your name|your phone number|address"'
+        }
+        return JSON.stringify(msg);
+    }
+    else //buy compleate update transaction status
+    {
+        var DBTran =await dataB.Transaction(userid,0);
+        if(Object.keys(DBTran).length==0)
+        {
+            var msg = {
+                type: 'text',
+                text: 'Please add items to Cart First'
+            }
+            return JSON.stringify(msg);
+        }else
+        {
+        //Cal sum
+        var DBFCart= await dataB.listcartid(DBTran[0].id,userid);
+        var objLength = Object.keys(DBFCart).length;
+        var Pitem=[];
+        var sum=0;
+        for(let l=0;l<objLength;l++){
+            Pitem[l]=await dataB.listProductbyid(DBFCart[l].item_id);
+            sum+=parseInt(Pitem[l][0].price);
+        }
+
+            //Update to totla chang status
+            //UpdateTransacStatus(userid,TranID,sum)
+        var DBUpTran= await dataB.UpdateTransacStatus(userid,DBTran[0].id,sum);
+        if(DBUpTran==1){
+            var msg = {
+                type: 'text',
+                text: 'Update Transaction Complete.'
+            }
+            return JSON.stringify(msg);
+        }
+        else{
+            var msg = {
+                type: 'text',
+                text: 'Update Transaction Fail.Please Try again.'
+            }
+            return JSON.stringify(msg);
+        }
+
+        }
+    }
+    
+
+}
+async function Adddata(mtext,userid){
+    //"adddata|your name|your phone number|address"
+    var textaddate=mtext.split('|');
+    if(textaddate[1]==null||textaddate[2]==null||textaddate[3]==null||textaddate[4]!=null)
+    {
+        var msg = {
+            type: 'text',
+            text: 'Please enter Format "adddata|your name|your phone number|address"'
+        }
+        return JSON.stringify(msg);
+    }
+    else
+    {
+        //inset to users table
+        //userid,name,phone,adr
+        var InsertDataToUser =await dataB.InserttoUserData(userid,textaddate[1],textaddate[2],textaddate[3]);
+        if(InsertDataToUser==1) {
+            var msg = {
+                type: 'text',
+                text: 'Insert New Address Complete'
+            }
+            return JSON.stringify(msg);
+        }
+        else
+        {
+            var msg = {
+                type: 'text',
+                text: 'Insert New Address Error. Please try again.'
+            }
+            return JSON.stringify(msg);
+        }
+        
+   
+    }
 }
 
 
-module.exports = { AddItem,BuyItem };
+module.exports = { AddItem,BuyItem,Adddata };

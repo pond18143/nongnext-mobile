@@ -12,17 +12,10 @@ const config = {
 async function listBrand() {
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect(config)
-        // const result = await sql.query`select * from brand where id = ${value}`
+      
         var command = `SELECT * from brand `
         const result = await sql.query(command)
 
-        // console.log(result.recordset[0])
-        // return model = {s
-        //     // name : result.recordset[0].name,
-        //     // describtion : result.recordset[0].describtion,
-
-        // }
-        // var b = await JSON.stringify(result.recordset[0].name);
         return result.recordset
 
 
@@ -32,19 +25,13 @@ async function listBrandbyName(name) {
     try {
         // make sure that any items are correctly URL encoded in the connection string
         await sql.connect(config)
-        // const result = await sql.query`select * from brand where id = ${value}`
+       
         var command = `SELECT m.name ,b.name ,m.describtion ,m.picture_url
                                FROM model m ,brand b
                                WHERE m.id_brand = b.id AND b.name = '${name}'`
         const result = await sql.query(command)
 
-        // console.log(result.recordset[0])
-        // return model = {s
-        //     // name : result.recordset[0].name,
-        //     // describtion : result.recordset[0].describtion,
-
-        // }
-        // var b = await JSON.stringify(result.recordset[0].name);
+        
 
         return result.recordset
     } catch (err) {
@@ -78,6 +65,16 @@ async function Transaction(userid,status) {
     try {
         await sql.connect(config)
         var command = `SELECT TOP 1 * FROM transactions WHERE id_linebot = '${userid}'and status='${status}' ORDER BY id DESC`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function TransactionUUid(uuid) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT TOP 1 * FROM transactions WHERE uuid = '${uuid}' ORDER BY id DESC`
         const result = await sql.query(command);
         return result.recordset
     } catch (err) {
@@ -147,9 +144,69 @@ async function ClearItemFromCart(userid,TranID) {
     }
 }
 
-
-
-
+//Call_center
+async function listCallcenterbyid(id) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT * FROM call_center WHERE id_linebot = '${id}'`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function InsertUsertoCall_center(userid,value) {
+    try {
+        await sql.connect(config)
+        var command = `INSERT INTO call_center (id_linebot,talk_bot) VALUES('${userid}','${value}')`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function UpdateStatustoCall_center(userid,value) {
+    try {
+        await sql.connect(config)
+        var command = `UPDATE call_center SET talk_bot='${value}' WHERE id_linebot='${userid}'`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+//buy function
+async function listUserbyid(id) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT TOP 1 * FROM users WHERE id_linebot = '${id} ORDER BY id DESC'`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function UpdateTransacStatus(userid,TranID,sum) {
+    try {
+        await sql.connect(config)
+        var command = `UPDATE transactions SET total='${sum}',status=1 WHERE id_linebot='${userid} and id= '${TranID}'`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+//adddata Function
+async function InserttoUserData(userid,name,phone,adr) {
+    try {
+        await sql.connect(config)
+        var command = `INSERT INTO users (id_linebot,name,phone,address) VALUES('${userid}','${name}','${phone}','${adr}')`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 
 module.exports.listBrand = listBrand;
@@ -165,6 +222,12 @@ module.exports.InsertItemtoCart = InsertItemtoCart;
 //Remove
 module.exports.RemoveItemFromCart=RemoveItemFromCart;
 module.exports.ClearItemFromCart=ClearItemFromCart;
+//call cneter 
+module.exports={listCallcenterbyid,InsertUsertoCall_center,UpdateStatustoCall_center };
+//buy adddata
+module.exports={listUserbyid,UpdateTransacStatus,InserttoUserData,TransactionUUid};
+
+
 // console.log(dataTest(1))
 
 // async function main(){
