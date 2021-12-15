@@ -37,8 +37,8 @@ async function lsCart(userid)
     }
     else if(objLength==1) {
       var data1 = JSON.parse(rawdata2);
-        data1.contents.footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
-        data1.contents.contents[0].body.contents[1].contents[1].text=""+sum; ///sum text=0
+      data1.contents.contents[0].footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
+      data1.contents.contents[0].body.contents[1].contents[1].text=""+sum; ///sum text=0
         data1.contents.contents[1].hero.url=""+Pitem[0][0].picture_url; //product picture
         data1.contents.contents[1].body.contents[0].text=""+Pitem[0][0].name; //product name
         data1.contents.contents[1].body.contents[1].text=""+Pitem[0][0].color; //product color
@@ -51,14 +51,14 @@ async function lsCart(userid)
     }
     else if(objLength>1&&objLength<=11){
       var data1 = JSON.parse(rawdata2);
-        data1.contents.footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
-        data1.contents.contents[0].body.contents[1].contents[1].text=""+sum; ///sum text=0
+      data1.contents.contents[0].footer.contents[0].action.text="clear cart "+DBTransac[0].id;//button text respond
+      data1.contents.contents[0].body.contents[1].contents[1].text=""+sum; ///sum text=0
         var nData=[];
         nData=await loopJson(objLength);///not sure
         for(let i=0;i<objLength;i++)
         {
         data1.contents.contents[i+1]=nData[i];
-        console.log(data1.contents.contents[i+1])
+        // console.log(data1.contents.contents[i+1])
         data1.contents.contents[i+1].hero.url=""+Pitem[i][0].picture_url; //product picture
         data1.contents.contents[i+1].body.contents[0].text=""+Pitem[i][0].name; //product name
         data1.contents.contents[i+1].body.contents[1].text=""+Pitem[i][0].color; //product color
