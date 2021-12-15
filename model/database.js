@@ -207,6 +207,17 @@ async function InserttoUserData(userid,name,phone,adr) {
         console.log(err)
     }
 }
+//insert PictureUrl
+async function InsertUrl(userid,message) {
+    try {
+        await sql.connect(config)
+        var command = `INSERT INTO url_picture (id_linebot,id_message) VALUES('${userid}','${message}')`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 
 module.exports.listBrand = listBrand;
@@ -233,6 +244,8 @@ module.exports.UpdateTransacStatus=UpdateTransacStatus;
 module.exports.InserttoUserData=InserttoUserData;
 module.exports.TransactionUUid=TransactionUUid;
 // module.exports={listUserbyid,UpdateTransacStatus,InserttoUserData,TransactionUUid};
+module.exports.InsertUrl=InsertUrl;
+
 
 // console.log(dataTest(1))
 

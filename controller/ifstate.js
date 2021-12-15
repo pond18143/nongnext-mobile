@@ -5,6 +5,7 @@ var receipt = require('./Receipt.js');
 var RmItem = require('./Removeitem.js');
 var ClearCart = require('./clearcart.js');
 var track = require('./trackt.js');
+var srore = require('./storeUrl')
 ///Callcenter
 var Callcen = require('./Call_center.js');
 
@@ -126,5 +127,12 @@ async function checkmtext(mtext, userid) {
         else return 1;
     }
 }
+async function storeUrl(userId, messageId) {
+    console.log("Add Image URL");
+    var data = await srore.InsertUrl(userId, messageId);
+    return data;
+}
 // module.exports = { checkmtext };
 module.exports.checkmtext = checkmtext;
+module.exports.storeUrl = storeUrl;
+

@@ -27,7 +27,11 @@ function handleEvent(event) {
   console.log(event);
   if (event.type === 'message' && event.message.type === 'text') {
     handleMessageEvent(event);
-  } else {
+  }
+  else if (event.type === 'message' && event.message.type === 'image') {
+    handleMessageImage(event);
+  }
+  else {
     return Promise.resolve(null);
   }
 }
@@ -39,6 +43,16 @@ function handleMessageEvent(event) {
   } else {
     return Promise.resolve(null);
   }
+}
+
+async function handleMessageImage(event) {//ถ้าส่งเป็นรูป จะขึ้นquick location
+  console.log("handleMessageImage")
+  // console.log(event.message.id)
+  // var a = await client.getMessageContent(event.message.id)
+  var returnImage = await CheckState.storeUrl(event.source.userId,event.message.id)
+  msg = await JSON.parse(returnImage);
+
+  return await client.replyMessage(event.replyToken, msg)
 }
 
 async function handleMessageText(event) {
@@ -54,19 +68,16 @@ async function handleMessageText(event) {
 
   var msg = {
     type: 'text',
-    text: 'เออ หวัดดี'
+    text: 'สวัสดีค่ะ'
   };
-  // console.log(JSON.parse(jsonModel.jMessage3()))
-  // var eventText = event.message.text.toLowerCase();
 
   var returnText = await CheckState.checkmtext(event.message.text, event.source.userId);
   msg = await JSON.parse(returnText);
 
-  // if (eventText == 'cart') {s
-  //   msg = 
-  // }
+
   if (returnText != 1) {
-  return client.replyMessage(event.replyToken, msg);}
+    return client.replyMessage(event.replyToken, msg);
+  }
 
 }
 
