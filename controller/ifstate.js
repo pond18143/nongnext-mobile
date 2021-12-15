@@ -94,6 +94,14 @@ async function checkmtext(mtext, userid) {
                 var data = await CallCen.EndCallCen(userid);
                 return data;
             }
+            else if (textcommand == 'help' ) {
+                console.log("Help");
+                var msg = {
+                    "type": "text",
+                    "text": "Command :\nls brand : แสดง brands ทั้งหมด\nreceipt : แสดงใบเสร็จหลังการชำระเงินล่าสุด\ncart : แสดงตะกร้าสินค้า\ntrack : ติดตามสถานะการจัดส่งล่าสุด\ncall center : คุยกับพนักงานโดยตรงผ่านแชท\n"
+                  }              
+                return JSON.stringify(msg);
+            }
             //default return
             else {     
                 var msg = {
