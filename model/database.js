@@ -186,10 +186,10 @@ async function listUserbyid(id) {
         console.log(err)
     }
 }
-async function UpdateTransacStatus(userid,TranID,sum) {
+async function UpdateTransacStatus(userid,TranID,sum,date) {
     try {
         await sql.connect(config)
-        var command = `UPDATE transactions SET total='${sum}',status=1, track=0 WHERE id_linebot='${userid}' and id= '${TranID}'`
+        var command = `UPDATE transactions SET total='${sum}',status=1, track=0, timeStamp='${date}' WHERE id_linebot='${userid}' and id= '${TranID}'`
         const result = await sql.query(command);
         return "1"
     } catch (err) {

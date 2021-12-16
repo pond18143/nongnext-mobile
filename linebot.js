@@ -74,7 +74,22 @@ async function handleMessageText(event) {
   var returnText = await CheckState.checkmtext(event.message.text, event.source.userId);
   msg = await JSON.parse(returnText);
 
+  if (returnText == 9){
+    var msg = [
+      {
+        "type": "image",
+        "originalContentUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg",
+        "previewImageUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg"
+  
+      },
+      {
+        "type": "text",
+        "text": "Please Transfer to my Prompay"
+      }
+    ] 
+    return client.replyMessage(event.replyToken, msg);
 
+  }
   if (returnText != 1) {
     return client.replyMessage(event.replyToken, msg);
   }

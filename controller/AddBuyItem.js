@@ -115,15 +115,10 @@ async function BuyItem(userid)
             
             //Update to totla chang status
             //UpdateTransacStatus(userid,TranID,sum)
-        var DBUpTran= await dataB.UpdateTransacStatus(userid,DBTran[0].id,sum);
+         var datetime = await new Date();
+        var DBUpTran= await dataB.UpdateTransacStatus(userid,DBTran[0].id,sum,datetime);
         if(DBUpTran==1){
-            ///return payment QR code
-            var msg = {
-                "type": "image",
-                "originalContentUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg",
-                "previewImageUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg"
-                }
-            return JSON.stringify(msg);
+            return 9;
         }
         else{
             var msg = {

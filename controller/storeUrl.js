@@ -6,7 +6,7 @@ async function InsertUrl(userid,message)
     if (DBTransac == 1) {
         var msg = {
             type: 'text',
-            text: 'Plese wait for validation a few hour'
+            text: 'Plese wait for validate in a few hour'
           };
           return JSON.stringify(msg)
         }

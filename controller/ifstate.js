@@ -99,7 +99,7 @@ async function checkmtext(mtext, userid) {
                 console.log("Help");
                 var msg ={
                     "type": "text",
-                    "text": "Command :\nls brand : แสดง brands ทั้งหมด\nreceipt : แสดงใบเสร็จหลังการชำระเงินล่าสุด\ncart : แสดงตะกร้าสินค้า\ntrack : ติดตามสถานะการจัดส่งล่าสุด\ncall center : คุยกับพนักงานโดยตรงผ่านแชท\n\"adddata|your name|your phone number|address\" : แก้ไขที่อยู่\n"
+                    "text": "Command :\nls brand : แสดง brands ทั้งหมด\nreceipt : แสดงใบเสร็จหลังการชำระเงินล่าสุด\ncart : แสดงตะกร้าสินค้า\ntrack : ติดตามสถานะการจัดส่งล่าสุด\ncall center : คุยกับพนักงานโดยตรงผ่านแชท\n\adddata|your name|your phone number|address\ : แก้ไขที่อยู่\n"
                   }              
                 return JSON.stringify(msg);
             }
