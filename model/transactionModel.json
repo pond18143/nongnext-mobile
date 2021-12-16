@@ -1,0 +1,268 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "size": "giga",
+    "direction": "ltr",
+    "hero": {
+      "type": "image",
+      "url": "https://media.discordapp.net/attachments/914926041657671721/920405113284218880/Screen_Shot_2564-12-15_at_03.00.55.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "text",
+          "text": "uuid",
+          "weight": "bold",
+          "size": "xl",
+          "wrap": true,
+          "contents": []
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "wrap": true,
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Iphone SE",
+              "align": "start",
+              "size": "sm",
+              "offsetStart": "sm",
+              "contents": []
+            },
+            {
+              "type": "text",
+              "text": "14900",
+              "align": "end",
+              "contents": []
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "position": "relative",
+      "offsetStart": "xxl",
+      "contents": [
+        {
+          "type": "text",
+          "text": "9999",
+          "align": "end",
+          "weight": "bold",
+          "offsetEnd": "xxl",
+          "contents": []
+        }
+      ]
+    }
+  }
+}
