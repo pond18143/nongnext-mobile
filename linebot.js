@@ -45,17 +45,17 @@ function handleMessageEvent(event) {
   }
 }
 
-async function handleMessageImage(event) {//ถ้าส่งเป็นรูป จะขึ้นquick location
+//check message.type = images
+async function handleMessageImage(event) {
   console.log("handleMessageImage")
-  // console.log(event.message.id)
-  // var a = await client.getMessageContent(event.message.id)
-  var returnImage = await CheckState.storeUrl(event.source.userId,event.message.id)
+  var returnImage = await CheckState.storeUrl(event.source.userId, event.message.id)
   msg = await JSON.parse(returnImage);
 
   return await client.replyMessage(event.replyToken, msg)
 }
 
 async function handleMessageText(event) {
+  //connect mongo
   const clientMongo = new MongoClient(url);
   const dbName = "se";
 
@@ -74,22 +74,6 @@ async function handleMessageText(event) {
   var returnText = await CheckState.checkmtext(event.message.text, event.source.userId);
   msg = await JSON.parse(returnText);
 
-  // if (returnText == 9){
-  //   var msg = [
-  //     {
-  //       "type": "image",
-  //       "originalContentUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg",
-  //       "previewImageUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg"
-  
-  //     },
-  //     {
-  //       "type": "text",
-  //       "text": "Please Transfer to my Prompay. \nand Upload Pay-in Slip. "
-  //     }
-  //   ] 
-  //   return client.replyMessage(event.replyToken, msg);
-
-  // }
   if (returnText != 1) {
     return client.replyMessage(event.replyToken, msg);
   }

@@ -1,35 +1,32 @@
 const dataB = require('../model/database.js')
 const request = require('request')
 const token = 'qGBrLfdlShrRBonCjZeGiXRnty8Q9Sozoj4J65djTDm';
-async function CallCen(userid)
-{
-    var DBFCallcen=await dataB.listCallcenterbyid(userid);
-    if(Object.keys(DBFCallcen).length==0)//if == 0 insert
+async function CallCen(userid) {
+    var DBFCallcen = await dataB.listCallcenterbyid(userid);
+    if (Object.keys(DBFCallcen).length == 0)//if == 0 insert
     {
-        var DBInsertCenter =await dataB.InsertUsertoCall_center(userid,1)
-        if(DBInsertCenter==1) 
-        {
+        var DBInsertCenter = await dataB.InsertUsertoCall_center(userid, 1)
+        if (DBInsertCenter == 1) {
             var msgNoti = 'Call Center : ' + userid;
-    request({
-        method: 'POST',
-        uri: 'https://notify-api.line.me/api/notify',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        'auth': {
-            'bearer': token
-        }, form: {
-            message: msgNoti,
-        }
-    })
+            request({
+                method: 'POST',
+                uri: 'https://notify-api.line.me/api/notify',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                'auth': {
+                    'bearer': token
+                }, form: {
+                    message: msgNoti,
+                }
+            })
             var msg = {
                 type: 'text',
                 text: 'Please Wait 5-10 minute.'
             }
             return JSON.stringify(msg);
         }
-        else
-        {
+        else {
             var msg = {
                 type: 'text',
                 text: 'Error Plese try again'
@@ -37,33 +34,8 @@ async function CallCen(userid)
             return JSON.stringify(msg);
         }
     }
-    else if(DBFCallcen[0].talk_bot==1)
-    {
+    else if (DBFCallcen[0].talk_bot == 1) {
         var msgNoti = 'Call Center : ' + userid;
-    request({
-        method: 'POST',
-        uri: 'https://notify-api.line.me/api/notify',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        'auth': {
-            'bearer': token
-        }, form: {
-            message: msgNoti,
-        }
-    })
-
-        var msg = {
-            type: 'text',
-            text: 'Please Wait 5-10 minute.'
-        }
-        return JSON.stringify(msg);
-    }            
-    else{//else update user_status to 1 and notify
-        var DBUpdateCenter =await dataB.UpdateStatustoCall_center(userid,1)
-        if(DBUpdateCenter==1)
-        {
-                var msgNoti = 'Call Center : ' + userid;
         request({
             method: 'POST',
             uri: 'https://notify-api.line.me/api/notify',
@@ -76,7 +48,30 @@ async function CallCen(userid)
                 message: msgNoti,
             }
         })
-        
+
+        var msg = {
+            type: 'text',
+            text: 'Please Wait 5-10 minute.'
+        }
+        return JSON.stringify(msg);
+    }
+    else {//else update user_status to 1 and notify
+        var DBUpdateCenter = await dataB.UpdateStatustoCall_center(userid, 1)
+        if (DBUpdateCenter == 1) {
+            var msgNoti = 'Call Center : ' + userid;
+            request({
+                method: 'POST',
+                uri: 'https://notify-api.line.me/api/notify',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                'auth': {
+                    'bearer': token
+                }, form: {
+                    message: msgNoti,
+                }
+            })
+
             var msg = {
                 type: 'text',
                 text: 'Please Wait 5-10 minute.'
@@ -84,8 +79,7 @@ async function CallCen(userid)
             return JSON.stringify(msg);
 
         }
-        else
-        {
+        else {
             var msg = {
                 type: 'text',
                 text: 'Error. Please Try again.'
@@ -95,33 +89,28 @@ async function CallCen(userid)
 
     }
 }
-async function EndCallCen(userid)
-{
-    var DBFCallcen=await dataB.listCallcenterbyid(userid);
-    if(Object.keys(DBFCallcen).length==0)//if == 0 insert
+async function EndCallCen(userid) {
+    var DBFCallcen = await dataB.listCallcenterbyid(userid);
+    if (Object.keys(DBFCallcen).length == 0)//if == 0 insert
     {
-        var DBInsertCenter =await dataB.InsertUsertoCall_center(userid,0)
-        if(DBInsertCenter==1) 
-        {
+        var DBInsertCenter = await dataB.InsertUsertoCall_center(userid, 0)
+        if (DBInsertCenter == 1) {
             var msg = {
                 type: 'text',
                 text: 'Chat With Admin close.'
             }
             return JSON.stringify(msg);
         }
-        else
-        {
+        else {
             var msg = {
                 type: 'text',
                 text: 'Error Plese try again'
             }
             return JSON.stringify(msg);
         }
-    }else
-    {
-        var DBUpdateCenter =await dataB.UpdateStatustoCall_center(userid,0)
-        if(DBUpdateCenter==1)
-        {      
+    } else {
+        var DBUpdateCenter = await dataB.UpdateStatustoCall_center(userid, 0)
+        if (DBUpdateCenter == 1) {
             var msg = {
                 type: 'text',
                 text: 'Chat With Admij close.'
@@ -129,8 +118,7 @@ async function EndCallCen(userid)
             return JSON.stringify(msg);
 
         }
-        else
-        {
+        else {
             var msg = {
                 type: 'text',
                 text: 'Error. Please Try again.'
@@ -139,16 +127,14 @@ async function EndCallCen(userid)
         }
     }
 }
-async function SelectCallcen(userid)
-{
-    
+async function SelectCallcen(userid) {
+
     var DBFCallcen = await dataB.listCallcenterbyid(userid);
-    if(Object.keys(DBFCallcen).length==0)//if == 0 insert
+    if (Object.keys(DBFCallcen).length == 0)//if == 0 insert
     {
         return 0;
-    }else
-    {
+    } else {
         return DBFCallcen[0].talk_bot;
     }
 }
-module.exports={CallCen,EndCallCen,SelectCallcen}
+module.exports = { CallCen, EndCallCen, SelectCallcen }

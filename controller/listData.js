@@ -5,14 +5,12 @@ const jsonModel = require('../model/contents.js');
 //console.log(data);
 
 async function ListData(mtext, userid) {
-    
+
     var textsplit = mtext.split(' ');
     var productname = textsplit[2] + ' ' + textsplit[3]
     var sectext = textsplit[1];
     var thirdtext = textsplit[2];
-    
 
-    
     //list All brand
     if (mtext == 'ls brand' | mtext == 'ls brand ') //list all brand
     {
