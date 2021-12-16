@@ -18,3 +18,12 @@ Project Nong'Next TechN
   ```
   node linebot.js
   ```
+  
+# วิธีการเช็ค Picture_url
+  
+  - ใส่ Authorization : Bearer <ACCESS TOKEN>
+  - นำ messageID ไปแทรก<messageId>
+  ```
+  https://api-data.line.me/v2/bot/message/<messageId>/content
+  ```
+   
