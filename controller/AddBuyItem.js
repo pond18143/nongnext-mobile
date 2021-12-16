@@ -118,7 +118,19 @@ async function BuyItem(userid)
          var datetime = await new Date();
         var DBUpTran= await dataB.UpdateTransacStatus(userid,DBTran[0].id,sum,datetime);
         if(DBUpTran==1){
-            return 9;
+            var msg = [
+                {
+                  "type": "image",
+                  "originalContentUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg",
+                  "previewImageUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg"
+            
+                },
+                {
+                  "type": "text",
+                  "text": "Please Transfer to my Prompay. \nand Upload Pay-in Slip. "
+                }
+              ] 
+            return JSON.stringify(msg);
         }
         else{
             var msg = {
