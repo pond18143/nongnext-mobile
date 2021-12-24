@@ -11,8 +11,8 @@ require('dotenv').config();
 const app = express();
 
 const config = {
-  channelAccessToken: 'YaeQhCzNLf9UjpO4UiiX3HRlZ8iixRqaumnJataQALX/bjQY3Lvz/yrY6Ce/1NTZGjP9+CDb3TLWrYjj2CaPirkVQwjJCs4oZbtOJrqKjPlSG1xuK4TixwaL0zXRsqtfm+YFGm8A/RmKK7dASoJ11gdB04t89/1O/w1cDnyilFU=',
-  channelSecret: 'e7afaa18967de97406ab281db92304ae'
+  channelAccessToken: 'D9hwB6AHchvwgdTdxuDFx3IEJEX6QoXu3lSGQff3xZSZX0+D92ZssxA6hmQYsZFg875reJAuORAwg+7Scs89lLUdvS9KnAUw06D1ZT6k3AIfcqT8smwbjjz8nnJD9BS533dgw0V65bnc37U9/XKctgdB04t89/1O/w1cDnyilFU=',
+  channelSecret: '07239bb793584313150afd9d4831ee83'
 };
 
 const client = new line.Client(config);
@@ -45,17 +45,17 @@ function handleMessageEvent(event) {
   }
 }
 
-async function handleMessageImage(event) {//ถ้าส่งเป็นรูป จะขึ้นquick location
+//check message.type = images
+async function handleMessageImage(event) {
   console.log("handleMessageImage")
-  // console.log(event.message.id)
-  // var a = await client.getMessageContent(event.message.id)
-  var returnImage = await CheckState.storeUrl(event.source.userId,event.message.id)
+  var returnImage = await CheckState.storeUrl(event.source.userId, event.message.id)
   msg = await JSON.parse(returnImage);
 
   return await client.replyMessage(event.replyToken, msg)
 }
 
 async function handleMessageText(event) {
+  //connect mongo
   const clientMongo = new MongoClient(url);
   const dbName = "se";
 
@@ -74,22 +74,6 @@ async function handleMessageText(event) {
   var returnText = await CheckState.checkmtext(event.message.text, event.source.userId);
   msg = await JSON.parse(returnText);
 
-  if (returnText == 9){
-    var msg = [
-      {
-        "type": "image",
-        "originalContentUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg",
-        "previewImageUrl": "https://media.discordapp.net/attachments/914926041657671721/920815269893521408/IMG_2808.jpg"
-  
-      },
-      {
-        "type": "text",
-        "text": "Please Transfer to my Prompay"
-      }
-    ] 
-    return client.replyMessage(event.replyToken, msg);
-
-  }
   if (returnText != 1) {
     return client.replyMessage(event.replyToken, msg);
   }
