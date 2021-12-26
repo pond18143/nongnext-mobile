@@ -228,7 +228,44 @@ async function InsertUrl(userid,message) {
         console.log(err)
     }
 }
+//checkrole
+async function ListRoleId(id) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT TOP 1 r.id
+        FROM admin a , roles r 
+        WHERE a.id_linebot = '${id}' AND a.role_id = r.id
+        ORDER BY id DESC`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
 
+//update Transaction
+async function UpdateTrackInTransaction(value,status) {
+    try {
+        await sql.connect(config)
+        var command = `UPDATE transactions SET status='${status}' WHERE uuid = '${value}'`
+        const result = await sql.query(command);
+        return "1"
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+//checkUuid
+async function ListUuid(uuid) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT * FROM transactions WHERE uuid = '${uuid}'`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 module.exports.listBrand = listBrand;
 module.exports.listProductbyName = listProductbyName;
@@ -257,6 +294,9 @@ module.exports.UpdateItemByid=UpdateItemByid
 // module.exports={listUserbyid,UpdateTransacStatus,InserttoUserData,TransactionUUid};
 module.exports.InsertUrl=InsertUrl;
 
+module.exports.ListRoleId=ListRoleId;
+module.exports.ListUuid=ListUuid;
+module.exports.UpdateTrackInTransaction=UpdateTrackInTransaction;
 
 // console.log(dataTest(1))
 

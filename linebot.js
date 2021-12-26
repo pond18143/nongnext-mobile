@@ -62,7 +62,7 @@ async function handleMessageText(event) {
   await clientMongo.connect();
   console.log("Connected correctly to server");
   const db = clientMongo.db(dbName);
-  const col = db.collection("nongnext");
+  const col = db.collection("admin");
   const p = await col.insertOne(event);
   await clientMongo.close();
 
