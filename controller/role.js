@@ -4,8 +4,7 @@ async function CheckRole(userid) {
 
     var DBFCallcen = await dataB.ListRoleId(userid);
     console.log(DBFCallcen[0])
-    if (DBFCallcen[0].id == 2)
-    {
+    if (DBFCallcen[0].id == 2) {
         return 2;
     } else {
         return 1;
@@ -26,18 +25,27 @@ async function EditTrack(mtext, userid) {
     var textsplit = mtext.split(' ');
     var sectext = textsplit[1];
     var thirdtext = textsplit[2];
-    var DBFTrack = await dataB.UpdateTrackInTransaction(sectext, thirdtext);
-    if (DBFTrack == 1) {
-        var msg = {
-            type: 'text',
-            text: 'Update Track from Transaction Complete'
+    if (thirdtext == 0 || thirdtext == 1 || thirdtext == 2 || thirdtext == 3) {
+        var DBFTrack = await dataB.UpdateTrackInTransaction(sectext, thirdtext);
+        if (DBFTrack == 1) {
+            var msg = {
+                type: 'text',
+                text: 'Update Track from Transaction Complete'
+            }
+            return JSON.stringify(msg)
         }
-        return JSON.stringify(msg)
+        else {
+            var msg = {
+                type: 'text',
+                text: 'Update item from Transaction Error.Please Try again.'
+            }
+            return JSON.stringify(msg)
+        }
     }
     else {
         var msg = {
             type: 'text',
-            text: 'Update item from Transaction Error.Please Try again.'
+            text: 'wrong status track.'
         }
         return JSON.stringify(msg)
     }
