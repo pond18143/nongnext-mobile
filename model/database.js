@@ -27,7 +27,7 @@ async function ListRoleId(id) {
 async function UpdateTrackInTransaction(value,status) {
     try {
         await sql.connect(config)
-        var command = `UPDATE transactions SET status='${status}' WHERE uuid = '${value}'`
+        var command = `UPDATE transactions SET track='${status}' WHERE uuid = '${value}'`
         const result = await sql.query(command);
         return "1"
     } catch (err) {
