@@ -230,6 +230,7 @@ async function InsertUrl(userid,message) {
 }
 
 
+
 module.exports.listBrand = listBrand;
 module.exports.listProductbyName = listProductbyName;
 module.exports.listBrandbyName = listBrandbyName;
@@ -256,7 +257,6 @@ module.exports.TransactionUUid=TransactionUUid;
 module.exports.UpdateItemByid=UpdateItemByid
 // module.exports={listUserbyid,UpdateTransacStatus,InserttoUserData,TransactionUUid};
 module.exports.InsertUrl=InsertUrl;
-
 
 // console.log(dataTest(1))
 

@@ -130,6 +130,7 @@ async function checkmtext(mtext, userid) {
 async function storeUrl(userId, messageId) {
     console.log("Add Image URL");
     var data = await srore.InsertUrl(userId, messageId);
+    
     return data;
 }
 // module.exports = { checkmtext };

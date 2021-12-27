@@ -1,5 +1,7 @@
 const { json } = require('body-parser');
 const dataB = require('../model/database.js')
+const request = require('request')
+const token = 'qGBrLfdlShrRBonCjZeGiXRnty8Q9Sozoj4J65djTDm';
 
 async function AddItem(mtext, userid) {
     var textsplit = mtext.split(' ');
@@ -126,6 +128,19 @@ async function BuyItem(userid) {
                         "text": "Please Transfer to my Prompay. \nand Upload Pay-in Slip. "
                     }
                 ]
+                var msgNoti = 'buy_uuid : ' + DBTran[0].uuid;
+                request({
+                    method: 'POST',
+                    uri: 'https://notify-api.line.me/api/notify',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    'auth': {
+                        'bearer': token
+                    }, form: {
+                        message: msgNoti,
+                    }
+                })
                 return JSON.stringify(msg);
             }
             else {
