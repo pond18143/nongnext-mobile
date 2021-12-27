@@ -1,15 +1,25 @@
 const dataB = require('../model/database.js')
 
 var fs = require('fs');
+const { json } = require('body-parser');
 var rawdata = fs.readFileSync('./model/cartModel1.json');
 var rawdata2 = fs.readFileSync('./model/cartModelList.json');
 
 async function lsCart(userid) {
   ///Select Transaction lastest
   var DBTransac = await dataB.Transaction(userid, 0);
-  if (DBTransac == null || DBTransac[0] == [] || Object.keys(DBTransac).length == 0) {
+  console.log(DBTransac)
+  if (DBTransac == null || DBTransac[0] == [] || Object.keys(DBTransac).length == 0 ) {
+    var insertT = await dataB.InsertTransaction(userid);
+    if(insertT != 1){
+      var msg = {
+        type: 'text',
+        text: 'Cart Went wrong Please try again'
+      }
+      return JSON.stringify(msg);
+    }
     var data = JSON.parse(rawdata);
-    data.contents.footer.contents[0].action.text = "clear cart " + DBTransac[0].id;//button text respond
+    // data.contents.footer.contents[0].action.text = "clear cart " + DBTransac[0].id;//button text respond
     var data = await JSON.stringify(data);
     return data;
   }
