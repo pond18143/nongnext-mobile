@@ -111,7 +111,7 @@ async function BuyItem(userid) {
 
             //Update to totla chang status
             //UpdateTransacStatus(userid,TranID,sum)
-            var datetime = await new Date();
+            var datetime = await new Date().toLocaleString().replace(',','');
             var DBUpTran = await dataB.UpdateTransacStatus(userid, DBTran[0].id, sum, datetime);
             if (DBUpTran == 1) {
                 var msg = [

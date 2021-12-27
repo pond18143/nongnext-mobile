@@ -27,16 +27,16 @@ async function receipt(userid) {
     data.contents.body.contents[0].text = "" + DBFTran[0].uuid;//uuid
     //loop 0-11 to clear datafirst
     for (let l = 0; l < 11; l++) {
-        data.contents.body.contents[1 + l].contents[0].text = " ";///product name
-        data.contents.body.contents[1 + l].contents[1].text = " ";//product price
+        data[0].contents.body.contents[1 + l].contents[0].text = " ";///product name
+        data[0].contents.body.contents[1 + l].contents[1].text = " ";//product price
     }
     for (let i = 0; i < objLength; i++) {
-        data.contents.body.contents[1 + i].contents[0].text = (i + 1) + ". " + Pitem[i][0].name + " " + Pitem[i][0].capacity + " " + Pitem[i][0].unit + " " + Pitem[i][0].color;///product name
-        data.contents.body.contents[1 + i].contents[1].text = "" + Pitem[i][0].price + " บาท";//product price
+        data[0].contents.body.contents[1 + i].contents[0].text = (i + 1) + ". " + Pitem[i][0].name + " " + Pitem[i][0].capacity + " " + Pitem[i][0].unit + " " + Pitem[i][0].color;///product name
+        data[0].contents.body.contents[1 + i].contents[1].text = "" + Pitem[i][0].price + " บาท";//product price
     }
     console.log(data.contents.footer.contents[0].text)
-    data.contents.footer.contents[0].text = "" + sum + " บาท";//show sum
-
+    data[0].contents.footer.contents[0].text = "" + sum + " บาท";//show sum
+    data[1].text = ""+ DBFTran[0].uuid; 
     var data = await JSON.stringify(data);
     return data;
 
