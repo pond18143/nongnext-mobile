@@ -267,6 +267,55 @@ async function ListUuid(uuid) {
     }
 }
 
+async function GetTransactionDate() {
+    try {
+        await sql.connect(config)
+        var command = `SELECT COUNT(t.id) AS total_no,SUM(t.total) AS total_price
+        FROM transactions t 
+        WHERE CAST(t.[timeStamp] AS DATE) = CAST(GETDATE() AS DATE)`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function GetTransactionWeek() {
+    try {
+        await sql.connect(config)
+        var command = `SELECT COUNT(t.id) AS total_no,SUM(t.total) AS total_price
+        FROM transactions t 
+        Where t.[timeStamp] BETWEEN DATEADD(DAY, -7, GETDATE()) AND DATEADD(DAY, 1, GETDATE())`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function GetTransactionMonthAndYear(months,years) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT COUNT(t.id) AS total_no,SUM(t.total) AS total_price
+        FROM transactions t  
+        WHERE MONTH(t.[timeStamp]) = '${months}' AND YEAR(t.[timeStamp]) = '${years}'`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function GetTransactionYear(years) {
+    try {
+        await sql.connect(config)
+        var command = `SELECT COUNT(t.id) AS total_no,SUM(t.total) AS total_price
+        FROM transactions t  
+        WHERE YEAR(t.[timeStamp]) = '${years}'`
+        const result = await sql.query(command);
+        return result.recordset
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 module.exports.listBrand = listBrand;
 module.exports.listProductbyName = listProductbyName;
 module.exports.listBrandbyName = listBrandbyName;
@@ -297,6 +346,11 @@ module.exports.InsertUrl=InsertUrl;
 module.exports.ListRoleId=ListRoleId;
 module.exports.ListUuid=ListUuid;
 module.exports.UpdateTrackInTransaction=UpdateTrackInTransaction;
+
+module.exports.GetTransactionDate=GetTransactionDate;
+module.exports.GetTransactionWeek=GetTransactionWeek;
+module.exports.GetTransactionMonthAndYear=GetTransactionMonthAndYear;
+module.exports.GetTransactionYear=GetTransactionYear;
 
 // console.log(dataTest(1))
 
