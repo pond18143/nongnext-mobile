@@ -4,6 +4,9 @@ async function CheckRole(userid) {
 
     var DBFCallcen = await dataB.ListRoleId(userid);
     console.log(DBFCallcen[0])
+    if (Object.keys(DBFCallcen).length == 0){
+        return 1;
+    }
     if (DBFCallcen[0].id == 2) {
         return 2;
     } else {
