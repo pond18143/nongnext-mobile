@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.8.3 on darwin)" generated="20220504 00:28:30.482" rpa="false" schemaversion="2">
+<suite id="s1" name="Linebot" source="/Users/poramet/Desktop/test_SWT/nongnext-mobile/test/linebot.robot">
+<test id="s1-t1" name="Test POST Doc Welcome_Positive">
+<kw name="POST Reqest hope">
+<tag>post</tag>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${AUT}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220504 00:28:30.655" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer YaeQhCzNLf9UjpO4UiiX3HRlZ8iixRqaumnJataQALX/bjQY3Lvz/yrY6Ce/1NTZGjP9+CDb3TLWrYjj2CaPirkVQwjJCs4oZbtOJrqKjPlSG1xuK4TixwaL0zXRsqtfm+YFGm8A/R...</msg>
+<status status="PASS" starttime="20220504 00:28:30.654" endtime="20220504 00:28:30.655"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${data}</var>
+<arg>{"to": ${USRID},"messages": [ {"type":"text", "text":"Hello, user"}]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 00:28:30.656" level="INFO">${data} = {"to": "U98e1440f1947bb4e81cdf9fa66b90bcc","messages": [ {"type":"text", "text":"Hello, user"}]}</msg>
+<status status="PASS" starttime="20220504 00:28:30.656" endtime="20220504 00:28:30.656"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>${URL_GET}/push</arg>
+<arg>headers=${headers}</arg>
+<arg>data=${data}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220504 00:28:30.888" level="INFO">POST Request : url=https://api.line.me/v2/bot/message/push 
+ path_url=/v2/bot/message/push 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer YaeQhCzNLf9UjpO4UiiX3HRlZ8iixRqaumnJataQALX/bjQY3Lvz/yrY6Ce/1NTZGjP9+CDb3TLWrYjj2CaPirkVQwjJCs4oZbtOJrqKjPlSG1xuK4TixwaL0zXRsqtfm+YFGm8A/RmKK7dASoJ11gdB04t89/1O/w1cDnyilFU=', 'Content-Length': '96'} 
+ body={"to": "U98e1440f1947bb4e81cdf9fa66b90bcc","messages": [ {"type":"text", "text":"Hello, user"}]} 
+ </msg>
+<msg timestamp="20220504 00:28:30.888" level="INFO">POST Response : url=https://api.line.me/v2/bot/message/push 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json', 'Server': 'envoy', 'x-content-type-options': 'nosniff', 'x-frame-options': 'DENY', 'x-line-request-id': '15ba0ef5-add8-4b60-8c4a-9652bd8d7ad0', 'x-xss-protection': '1; mode=block', 'Content-Length': '2', 'Expires': 'Tue, 03 May 2022 17:28:30 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Tue, 03 May 2022 17:28:30 GMT', 'Connection': 'keep-alive'} 
+ body={} 
+ </msg>
+<msg timestamp="20220504 00:28:30.888" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 00:28:30.657" endtime="20220504 00:28:30.888"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>OK</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220504 00:28:30.889" endtime="20220504 00:28:30.889"/>
+</kw>
+<status status="PASS" starttime="20220504 00:28:30.653" endtime="20220504 00:28:30.889"/>
+</kw>
+<status status="PASS" starttime="20220504 00:28:30.652" endtime="20220504 00:28:30.889"/>
+</test>
+<status status="PASS" starttime="20220504 00:28:30.483" endtime="20220504 00:28:30.890"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Linebot">Linebot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

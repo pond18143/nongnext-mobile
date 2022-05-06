@@ -4,7 +4,7 @@ var uuid = require('uuid');
 const config = {
     user: 'sa',
     password: 'P@ssw0rd',
-    server: '68.183.186.117', // You can use 'localhost\\instance' to connect to named instance
+    server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
     database: 'nongnext',
     trustServerCertificate: true,
 }

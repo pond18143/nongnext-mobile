@@ -1,0 +1,393 @@
+{
+    "type": "flex",
+    "altText": "Flex Message",
+    "contents": {
+        "type": "carousel",
+        "contents": [
+            {
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://media.discordapp.net/attachments/914926041657671721/919979457685651577/applelogo2.jpeg",
+                    "size": "xxl",
+                    "aspectRatio": "10:19",
+                    "aspectMode": "fit"
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "apple",
+                            "weight": "bold",
+                            "size": "xl",
+                            "align": "start",
+                            "wrap": true,
+                            "contents": []
+                        },
+                        {
+                            "type": "text",
+                            "text": "Description",
+                            "align": "start",
+                            "contents": []
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "applee",
+                                    "weight": "regular",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "xl",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "Choose apple",
+                                "text": "ls brand apple"
+                            },
+                            "style": "primary"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://media.discordapp.net/attachments/914926041657671721/919980227457847296/7650202e956e24e2b92449ca3e888e51.png",
+                    "size": "xxl",
+                    "aspectRatio": "10:19",
+                    "aspectMode": "fit"
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "samsung",
+                            "weight": "bold",
+                            "size": "xl",
+                            "align": "start",
+                            "wrap": true,
+                            "contents": []
+                        },
+                        {
+                            "type": "text",
+                            "text": "Description",
+                            "align": "start",
+                            "contents": []
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "samsungg",
+                                    "weight": "regular",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "xl",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "Choose samsung",
+                                "text": "ls brand samsung"
+                            },
+                            "style": "primary"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://media.discordapp.net/attachments/914926041657671721/919298668312559637/Bg6tlA_TJaD3HwpCX1qHA_16o-hEr3Qa_90c8dgmyfbON_0uzXJPyf_xg-kV8VZM2fIyy152XlENzzTOvUftFvJMwQptG3TpQ30xOsOPeIdG3lHsTzp5U9Zs.",
+                    "size": "xxl",
+                    "aspectRatio": "10:19",
+                    "aspectMode": "fit"
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "xiaomi",
+                            "weight": "bold",
+                            "size": "xl",
+                            "align": "start",
+                            "wrap": true,
+                            "contents": []
+                        },
+                        {
+                            "type": "text",
+                            "text": "Description",
+                            "align": "start",
+                            "contents": []
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "xiaomii",
+                                    "weight": "regular",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "xl",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "Choose xiaomi",
+                                "text": "ls brand xiaomi"
+                            },
+                            "style": "primary"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://media.discordapp.net/attachments/914926041657671721/919298965055344711/OnePlus_Logo.png?width=1012&height=1012",
+                    "size": "xxl",
+                    "aspectRatio": "10:19",
+                    "aspectMode": "fit"
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "oneplus",
+                            "weight": "bold",
+                            "size": "xl",
+                            "align": "start",
+                            "wrap": true,
+                            "contents": []
+                        },
+                        {
+                            "type": "text",
+                            "text": "Description",
+                            "align": "start",
+                            "contents": []
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "ounpluss",
+                                    "weight": "regular",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "xl",
+                                    "flex": 0,
+                                    "align": "end",
+                                    "wrap": true,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "weight": "bold",
+                                    "size": "sm",
+                                    "margin": "sm",
+                                    "wrap": true,
+                                    "contents": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "message",
+                                "label": "Choose oneplus",
+                                "text": "ls brand oneplus"
+                            },
+                            "style": "primary"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
