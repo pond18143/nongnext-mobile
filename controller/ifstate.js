@@ -17,8 +17,8 @@ const token = 'qGBrLfdlShrRBonCjZeGiXRnty8Q9Sozoj4J65djTDm';
 // var RemoveItem=require('./RemoveItem.js')
 
 //maybe store log at start function
-async function checkmtext(mtext, userid) {
-
+async function Checkmtext(mtext, userid) {
+    mtext = mtext.toLowerCase();
     var textcommand = '';//use to check first command
     //check space in texet
     var textsplit = mtext.split(' ');
@@ -134,6 +134,6 @@ async function storeUrl(userId, messageId) {
     return data;
 }
 // module.exports = { checkmtext };
-module.exports.checkmtext = checkmtext;
+module.exports.Checkmtext = Checkmtext;
 module.exports.storeUrl = storeUrl;
 

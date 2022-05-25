@@ -71,7 +71,7 @@ async function handleMessageText(event) {
     text: 'สวัสดีค่ะ'
   };
 
-  var returnText = await CheckState.checkmtext(event.message.text, event.source.userId);
+  var returnText = await CheckState.Checkmtext(event.message.text, event.source.userId);
   msg = await JSON.parse(returnText);
 
   if (returnText != 1) {
